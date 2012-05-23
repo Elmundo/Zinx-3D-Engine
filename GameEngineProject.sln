@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChaosEngine", "ChaosEngine\ChaosEngine.vcxproj", "{24EDD299-F0F4-4209-BC2F-3DC0F1071DF4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TrialGame", "TrialGame\TrialGame.vcxproj", "{1BF91A93-6847-4A74-AA15-A0A5D6CDA541}"
+	ProjectSection(ProjectDependencies) = postProject
+		{24EDD299-F0F4-4209-BC2F-3DC0F1071DF4} = {24EDD299-F0F4-4209-BC2F-3DC0F1071DF4}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24EDD299-F0F4-4209-BC2F-3DC0F1071DF4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{24EDD299-F0F4-4209-BC2F-3DC0F1071DF4}.Debug|Win32.Build.0 = Debug|Win32
+		{24EDD299-F0F4-4209-BC2F-3DC0F1071DF4}.Release|Win32.ActiveCfg = Release|Win32
+		{24EDD299-F0F4-4209-BC2F-3DC0F1071DF4}.Release|Win32.Build.0 = Release|Win32
+		{1BF91A93-6847-4A74-AA15-A0A5D6CDA541}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1BF91A93-6847-4A74-AA15-A0A5D6CDA541}.Debug|Win32.Build.0 = Debug|Win32
+		{1BF91A93-6847-4A74-AA15-A0A5D6CDA541}.Release|Win32.ActiveCfg = Release|Win32
+		{1BF91A93-6847-4A74-AA15-A0A5D6CDA541}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
