@@ -25,164 +25,71 @@
     <Filter Include="Renderer">
       <UniqueIdentifier>{1daf9739-ec25-4a41-bb38-ab7842c43fd2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="System">
-      <UniqueIdentifier>{251fb70a-3253-4c5c-827d-4325c104280c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Utility">
       <UniqueIdentifier>{e449539b-55fd-4bd6-9e8a-570a7a5bbaa8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{d323d6b6-7b0c-4e3d-afcf-704138c62a80}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Camera\Camera.cpp">
-      <Filter>Camera</Filter>
-    </ClCompile>
-    <ClCompile Include="Display\Model.cpp">
-      <Filter>Display</Filter>
-    </ClCompile>
-    <ClCompile Include="Display\ModelManager.cpp">
-      <Filter>Display</Filter>
-    </ClCompile>
-    <ClCompile Include="Display\Sprite.cpp">
-      <Filter>Display</Filter>
-    </ClCompile>
-    <ClCompile Include="Display\SpriteManager.cpp">
-      <Filter>Display</Filter>
-    </ClCompile>
-    <ClCompile Include="Display\Texture.cpp">
-      <Filter>Display</Filter>
-    </ClCompile>
-    <ClCompile Include="Display\TextureManager.cpp">
-      <Filter>Display</Filter>
-    </ClCompile>
     <ClCompile Include="Input\Input.cpp">
       <Filter>Input</Filter>
-    </ClCompile>
-    <ClCompile Include="Light\Light.cpp">
-      <Filter>Light</Filter>
-    </ClCompile>
-    <ClCompile Include="Light\LightManager.cpp">
-      <Filter>Light</Filter>
     </ClCompile>
     <ClCompile Include="Log\Log.cpp">
       <Filter>Log</Filter>
     </ClCompile>
-    <ClCompile Include="Object\BaseObject.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
-    <ClCompile Include="Object\Object.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
-    <ClCompile Include="Object\Object2D.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
-    <ClCompile Include="Physics\RayPicking.cpp">
-      <Filter>Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="Renderer\Renderer.cpp">
-      <Filter>Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="System\Direct3D.cpp">
-      <Filter>System</Filter>
-    </ClCompile>
-    <ClCompile Include="System\FrameWnd.cpp">
-      <Filter>System</Filter>
-    </ClCompile>
-    <ClCompile Include="System\GameEngine.cpp">
-      <Filter>System</Filter>
-    </ClCompile>
-    <ClCompile Include="Utility\EngineHelper.cpp">
-      <Filter>Utility</Filter>
-    </ClCompile>
     <ClCompile Include="Utility\Math.cpp">
       <Filter>Utility</Filter>
     </ClCompile>
-    <ClCompile Include="Utility\SystemTime.cpp">
-      <Filter>Utility</Filter>
-    </ClCompile>
     <ClCompile Include="SkyBox.cpp" />
+    <ClCompile Include="Object\Object.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Application.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Director.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Window.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Camera\Camera.h">
-      <Filter>Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="Display\Model.h">
-      <Filter>Display</Filter>
-    </ClInclude>
-    <ClInclude Include="Display\ModelManager.h">
-      <Filter>Display</Filter>
-    </ClInclude>
-    <ClInclude Include="Display\Sprite.h">
-      <Filter>Display</Filter>
-    </ClInclude>
-    <ClInclude Include="Display\SpriteManager.h">
-      <Filter>Display</Filter>
-    </ClInclude>
-    <ClInclude Include="Display\Texture.h">
-      <Filter>Display</Filter>
-    </ClInclude>
-    <ClInclude Include="Display\TextureManager.h">
-      <Filter>Display</Filter>
-    </ClInclude>
     <ClInclude Include="Input\Input.h">
       <Filter>Input</Filter>
     </ClInclude>
     <ClInclude Include="Input\InputEnum.h">
       <Filter>Input</Filter>
     </ClInclude>
-    <ClInclude Include="Light\Light.h">
-      <Filter>Light</Filter>
-    </ClInclude>
-    <ClInclude Include="Light\LightEnum.h">
-      <Filter>Light</Filter>
-    </ClInclude>
-    <ClInclude Include="Light\LightManager.h">
-      <Filter>Light</Filter>
-    </ClInclude>
     <ClInclude Include="Log\Log.h">
       <Filter>Log</Filter>
     </ClInclude>
-    <ClInclude Include="Object\BaseObject.h">
-      <Filter>Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Object\Object.h">
-      <Filter>Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Object\Object2D.h">
-      <Filter>Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Object\ObjectManager.h">
-      <Filter>Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Physics\RayPicking.h">
-      <Filter>Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer\Renderer.h">
-      <Filter>Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="System\Direct3D.h">
-      <Filter>System</Filter>
-    </ClInclude>
-    <ClInclude Include="System\FrameWnd.h">
-      <Filter>System</Filter>
-    </ClInclude>
-    <ClInclude Include="System\GameEngine.h">
-      <Filter>System</Filter>
-    </ClInclude>
     <ClInclude Include="Utility\ClassHelper.h">
-      <Filter>Utility</Filter>
-    </ClInclude>
-    <ClInclude Include="Utility\EngineHelper.h">
       <Filter>Utility</Filter>
     </ClInclude>
     <ClInclude Include="Utility\Math.h">
       <Filter>Utility</Filter>
     </ClInclude>
-    <ClInclude Include="Utility\SystemTime.h">
-      <Filter>Utility</Filter>
-    </ClInclude>
     <ClInclude Include="SkyBox.h" />
     <ClInclude Include="Utility\Macros.h">
       <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility\Config.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Object.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Application.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Director.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Window.h">
+      <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

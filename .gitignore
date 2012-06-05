@@ -10,3 +10,8 @@
 *.lai
 *.la
 *.a
+
+/Chaos Engine Doc Format.txt
+/Debug
+/ipch
+/TrialGame

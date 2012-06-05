@@ -82,59 +82,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Camera\Camera.cpp" />
-    <ClCompile Include="Display\Model.cpp" />
-    <ClCompile Include="Display\ModelManager.cpp" />
-    <ClCompile Include="Display\Sprite.cpp" />
-    <ClCompile Include="Display\SpriteManager.cpp" />
-    <ClCompile Include="Display\Texture.cpp" />
-    <ClCompile Include="Display\TextureManager.cpp" />
+    <ClCompile Include="Core\Application.cpp" />
+    <ClCompile Include="Core\Director.cpp" />
+    <ClCompile Include="Core\Window.cpp" />
     <ClCompile Include="Input\Input.cpp" />
-    <ClCompile Include="Light\Light.cpp" />
-    <ClCompile Include="Light\LightManager.cpp" />
     <ClCompile Include="Log\Log.cpp" />
-    <ClCompile Include="Object\BaseObject.cpp" />
     <ClCompile Include="Object\Object.cpp" />
-    <ClCompile Include="Object\Object2D.cpp" />
-    <ClCompile Include="Physics\RayPicking.cpp" />
-    <ClCompile Include="Renderer\Renderer.cpp" />
     <ClCompile Include="SkyBox.cpp" />
-    <ClCompile Include="System\Direct3D.cpp" />
-    <ClCompile Include="System\FrameWnd.cpp" />
-    <ClCompile Include="System\GameEngine.cpp" />
-    <ClCompile Include="Utility\EngineHelper.cpp" />
     <ClCompile Include="Utility\Math.cpp" />
-    <ClCompile Include="Utility\SystemTime.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Camera\Camera.h" />
-    <ClInclude Include="Display\Model.h" />
-    <ClInclude Include="Display\ModelManager.h" />
-    <ClInclude Include="Display\Sprite.h" />
-    <ClInclude Include="Display\SpriteManager.h" />
-    <ClInclude Include="Display\Texture.h" />
-    <ClInclude Include="Display\TextureManager.h" />
+    <ClInclude Include="Core\Application.h" />
+    <ClInclude Include="Core\Director.h" />
+    <ClInclude Include="Core\Window.h" />
     <ClInclude Include="Input\Input.h" />
     <ClInclude Include="Input\InputEnum.h" />
-    <ClInclude Include="Light\Light.h" />
-    <ClInclude Include="Light\LightEnum.h" />
-    <ClInclude Include="Light\LightManager.h" />
     <ClInclude Include="Log\Log.h" />
-    <ClInclude Include="Object\BaseObject.h" />
     <ClInclude Include="Object\Object.h" />
-    <ClInclude Include="Object\Object2D.h" />
-    <ClInclude Include="Object\ObjectManager.h" />
-    <ClInclude Include="Physics\RayPicking.h" />
-    <ClInclude Include="Renderer\Renderer.h" />
     <ClInclude Include="SkyBox.h" />
-    <ClInclude Include="System\Direct3D.h" />
-    <ClInclude Include="System\FrameWnd.h" />
-    <ClInclude Include="System\GameEngine.h" />
     <ClInclude Include="Utility\ClassHelper.h" />
-    <ClInclude Include="Utility\EngineHelper.h" />
+    <ClInclude Include="Utility\Config.h" />
     <ClInclude Include="Utility\Macros.h" />
     <ClInclude Include="Utility\Math.h" />
-    <ClInclude Include="Utility\SystemTime.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

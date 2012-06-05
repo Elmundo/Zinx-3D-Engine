@@ -2,7 +2,7 @@
 
 #include <d3dx9.h>
 #include <d3d9.h>
-#include "Camera\Camera.h"
+//#include "Camera\Camera.h"
 #include <Utility\Macros.h>
 
 class CHAOS_DLL SkyBox{
