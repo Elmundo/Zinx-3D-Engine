@@ -1,4 +1,6 @@
-#include "Log\Log.h"
+#include "Log/Log.h"
+
+CHAOS_ENGINE_BEGIN
 
 void Log::debug(std::string className, std::string method, std::string message){
 	if(_logFile.good()){
@@ -41,3 +43,5 @@ void Log::warn(std::string className, std::string method, std::string message){
 }
 
 Log* Log::_instance = NULL;
+
+CHAOS_ENGINE_END

@@ -3,30 +3,32 @@
 CHAOS_ENGINE_BEGIN
 
 // Static object
-UINT64 Object::_objectID = 0;
+UINT64 Object::_objectCount= 0;
 
 Object::Object()
 {
-	_objectID++;
+	_objectID = ++_objectCount;
 }
 
-UINT64 Object::objectID(){
+UINT64 Object::objectCount(){
+	return _objectCount;
+}
+
+UINT Object::objectID()
+{
 	return _objectID;
 }
 
-void Object::onAdd()
+void Object::release()
 {
-
-}
-
-void Object::onRemove()
-{
-
+	delete this;
 }
 
 Object::~Object()
 {
-	// Do some stuff
+	--_objectCount;
 }
+
+
 
 CHAOS_ENGINE_END

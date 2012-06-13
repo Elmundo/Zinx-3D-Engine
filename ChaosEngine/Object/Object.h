@@ -8,7 +8,7 @@ Description: Abstract root class which all Chaos Engine classes inherit from
 
 -------------------------------------------------------------------------
 History:
-- 2012-03-06   : Created by Baris YILMAZ
+- 03-06-2012   : Created by Baris YILMAZ
 
 *********************************************************************/
 
@@ -16,6 +16,7 @@ History:
 #define __OBJECT_H__
 
 #include "Utility/Macros.h"
+#include "Utility/Config.h"
 #include <Windows.h>
 
 CHAOS_ENGINE_BEGIN
@@ -23,18 +24,16 @@ CHAOS_ENGINE_BEGIN
 class CHAOS_DLL Object{
 
 private:
-	static UINT64 _objectID; 
+	static UINT64 _objectCount; 
+	UINT _objectID;
 
 public:
-
 	Object();
 	virtual ~Object();
 
-	virtual void onAdd();
-	virtual void onRemove();
-
-	static UINT64 objectID();
-
+	static UINT64 objectCount();
+	UINT objectID();
+	virtual void release();
 };
 
 CHAOS_ENGINE_END

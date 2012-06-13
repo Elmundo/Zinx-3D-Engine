@@ -1,4 +1,7 @@
 #include "Core/Application.h"
+#include "Log/Log.h"
+#include "Utility/ClassHelper.h"
+#include "resource/ResourceService.h"
 
 CHAOS_ENGINE_BEGIN
 
@@ -15,6 +18,8 @@ Application::Application(){
 
 int Application::run(){
 	
+	Log::instance()->info(ClassHelper::getClassName(this), "run", "ChaosEngine v0.1" );
+
 	MSG msg;
 	LARGE_INTEGER frequency;
 	LARGE_INTEGER now;
@@ -23,13 +28,17 @@ int Application::run(){
 	QueryPerformanceFrequency(&frequency);
 	QueryPerformanceCounter(&last);
 
+	Window* wnd = new Window();// Windows::instance();
+	if(!wnd->create((LPCSTR)"ChaosEngine v0.1", 640, 480))
+		return 1;
+
+	Camera* camera = Camera::instance();
+	if (!camera)
+		return 1;
+
 	// Call initInstance and applicationLaunched methods here
 	if (!initInstance() || !applicationLaunched())
 		return 0;
-
-	Window* wnd = new Window();
-	if(!wnd->create((LPCSTR)"ChaosEngine v0.1", 640, 480))
-		return 1;
 
 	if(_renderInterval.QuadPart == 0)
 		setRenderInterval(1.0 / 60);
@@ -43,10 +52,12 @@ int Application::run(){
 			if (now.QuadPart - last.QuadPart > _renderInterval.QuadPart)
 			{
 				last.QuadPart = now.QuadPart;
-				//Director::instance()->mainLoop();
+				Director::instance()->mainLoop();
 			}
-		}else{
-			Sleep(0);
+			else{
+				Sleep(0);
+			}
+			continue;
 		}
 
 		if(msg.message == WM_QUIT){
@@ -75,7 +86,10 @@ Application* Application::instance(){
 
 bool Application::initInstance()
 {
-	//Override this method
+	ResourceService::instance()->loadResource("troll2.X");
+
+	GameObject* gameObject = new GameObject("troll2.X");
+
 	return true;
 }
 

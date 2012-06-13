@@ -8,7 +8,7 @@ Description: Manage the whole project
 
 -------------------------------------------------------------------------
 History:
-- 2012-03-06   : Created by Baris YILMAZ
+- 03-06-2012   : Created by Baris YILMAZ
 
 *********************************************************************/
 
@@ -16,6 +16,8 @@ History:
 #define __APPLICATION_H__
 
 #include "Core/Window.h"
+#include "Core/Director.h"
+#include "Camera/Camera.h"
 
 CHAOS_ENGINE_BEGIN
 

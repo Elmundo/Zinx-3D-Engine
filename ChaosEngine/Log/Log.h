@@ -1,13 +1,15 @@
-#ifndef LOG_H
-#define LOG_H
+#ifndef __LOG_H__
+#define __LOG_H__
 
 #include <fstream>
 #include <string>
 #include <typeinfo>
-#include "Utility\ClassHelper.h"
-#include <Utility/Macros.h>
+#include "Utility/ClassHelper.h"
+#include "Utility/Macros.h"
 
 //Singleton pattern class
+CHAOS_ENGINE_BEGIN
+
 class CHAOS_DLL Log{
 private:
 	static Log* _instance;
@@ -38,5 +40,7 @@ public:
 		return _instance;
 	}
 };
+
+CHAOS_ENGINE_END
 
 #endif

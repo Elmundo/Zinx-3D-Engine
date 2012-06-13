@@ -8,14 +8,16 @@ Description: Manager which control a lot of thing
 
 -------------------------------------------------------------------------
 History:
-- 2012-03-06   : Created by Baris YILMAZ
+- 03-06-2012   : Created by Baris YILMAZ
 
 *********************************************************************/
 
 #ifndef __DIRECTOR_H__
 #define __DIRECTOR_H__
 
-#include "Object/Object.h"
+#include "Core/Scheduler.h"
+#include "Core/Renderer.h"
+#include "Core/ObjectManager.h"
 
 CHAOS_ENGINE_BEGIN
 
@@ -35,6 +37,8 @@ public:
 	void mainLoop();
 	bool render();
 	void showFPS();
+	void end();
+	virtual void release();
 
 	static Director* instance();
 

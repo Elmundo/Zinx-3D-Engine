@@ -1,9 +1,11 @@
 #include "SkyBox.h"
 
-SkyBox::SkyBox(LPDIRECT3DDEVICE9 pDirect3DDevice){
+CHAOS_ENGINE_BEGIN
 
-	this->pDirect3DDevice = pDirect3DDevice;
+SkyBox::SkyBox(){
 	
+	_renderer = Renderer::instance()->getDevice();
+
 	TTexVertex SkyboxMesh[24] =
 	{
 		// Front quad, NOTE: All quads face inward
@@ -49,7 +51,7 @@ SkyBox::SkyBox(LPDIRECT3DDEVICE9 pDirect3DDevice){
 
 
 	// Create our vertex buffer ( 24 vertices (4 verts * 6 faces) )
-    pDirect3DDevice->CreateVertexBuffer( sizeof(TTexVertex) * 24, 0, D3DFVF_XYZ | D3DFVF_TEX1,
+    _renderer->CreateVertexBuffer( sizeof(TTexVertex) * 24, 0, D3DFVF_XYZ | D3DFVF_TEX1,
                                              D3DPOOL_MANAGED, &pSkyboxVertexBuffer, NULL );
 
 	void *pVertices = NULL;
@@ -63,12 +65,12 @@ SkyBox::SkyBox(LPDIRECT3DDEVICE9 pDirect3DDevice){
 	// Load Textures.  I created a global array just to keep things simple.  The order of the images
 	// is VERY important.  The reason is the skybox mesh (g_SkyboxMesh[]) array was created above
 	// in this order. (ie. front, back, left, etc.)
-    hRet  = D3DXCreateTextureFromFile( pDirect3DDevice, ("SkyBox_Front.jpg") , &pSkyTextures[0] );
-    hRet |= D3DXCreateTextureFromFile( pDirect3DDevice, ("SkyBox_Back.jpg")  , &pSkyTextures[1] );
-    hRet |= D3DXCreateTextureFromFile( pDirect3DDevice, ("SkyBox_Left.jpg")  , &pSkyTextures[2] );
-    hRet |= D3DXCreateTextureFromFile( pDirect3DDevice, ("SkyBox_Right.jpg") , &pSkyTextures[3] );
-    hRet |= D3DXCreateTextureFromFile( pDirect3DDevice, ("SkyBox_Top.jpg")   , &pSkyTextures[4] );
-    hRet |= D3DXCreateTextureFromFile( pDirect3DDevice, ("SkyBox_Bottom.jpg"), &pSkyTextures[5] );
+    hRet  = D3DXCreateTextureFromFile( _renderer, ("SkyBox_Front.jpg") , &pSkyTextures[0] );
+    hRet |= D3DXCreateTextureFromFile( _renderer, ("SkyBox_Back.jpg")  , &pSkyTextures[1] );
+    hRet |= D3DXCreateTextureFromFile( _renderer, ("SkyBox_Left.jpg")  , &pSkyTextures[2] );
+    hRet |= D3DXCreateTextureFromFile( _renderer, ("SkyBox_Right.jpg") , &pSkyTextures[3] );
+    hRet |= D3DXCreateTextureFromFile( _renderer, ("SkyBox_Top.jpg")   , &pSkyTextures[4] );
+    hRet |= D3DXCreateTextureFromFile( _renderer, ("SkyBox_Bottom.jpg"), &pSkyTextures[5] );
 }
 
 bool SkyBox::RenderSkyBox(){
@@ -79,14 +81,14 @@ bool SkyBox::RenderSkyBox(){
 	//pDirect3DDevice->SetRenderState( D3DRS_LIGHTING, false );
 
 	// Render the sky box
-    pDirect3DDevice->SetFVF( D3DFVF_XYZ | D3DFVF_TEX1 );
-    pDirect3DDevice->SetStreamSource( 0, pSkyboxVertexBuffer, 0, sizeof(TTexVertex));
+    _renderer->SetFVF( D3DFVF_XYZ | D3DFVF_TEX1 );
+    _renderer->SetStreamSource( 0, pSkyboxVertexBuffer, 0, sizeof(TTexVertex));
     
 	// Set the world matrix to identity for the skybox
 	D3DXMATRIX matWorld;
 	D3DXMatrixIdentity(&matWorld);
 	//CAMERA YI TAKÝP ETSÝN SKYBOX
-	pDirect3DDevice->SetTransform(D3DTS_WORLD, &matWorld );
+	_renderer->SetTransform(D3DTS_WORLD, &matWorld );
 
     // Render the 6 faces of the skybox
 	// DrawPrimitive is used to draw polygons when the vertices are stored in a device resource 
@@ -95,10 +97,10 @@ bool SkyBox::RenderSkyBox(){
     for ( ULONG i = 0; i < 6; ++i )
     {
 		// Set the texture for this primitive
-        pDirect3DDevice->SetTexture( 0, pSkyTextures[i] );
+        _renderer->SetTexture( 0, pSkyTextures[i] );
 
 		// Render the face (one strip per face from the vertex buffer)  There are 2 primitives per face.
-        pDirect3DDevice->DrawPrimitive( D3DPT_TRIANGLESTRIP, i * 4, 2 );
+        _renderer->DrawPrimitive( D3DPT_TRIANGLESTRIP, i * 4, 2 );
 
     } // Next side
 
@@ -109,3 +111,5 @@ bool SkyBox::RenderSkyBox(){
 
 	return true;
 }
+
+CHAOS_ENGINE_END

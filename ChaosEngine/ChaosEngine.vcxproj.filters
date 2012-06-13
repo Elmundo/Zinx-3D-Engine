@@ -4,9 +4,6 @@
     <Filter Include="Camera">
       <UniqueIdentifier>{3531830a-ca1f-436b-bfff-085c599be8ea}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Display">
-      <UniqueIdentifier>{7d1fd878-c09d-4547-a393-c4b8f9ed3cd7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Input">
       <UniqueIdentifier>{5c9816ad-b8bd-4c4e-ba91-b08c001cb7dc}</UniqueIdentifier>
     </Filter>
@@ -22,14 +19,17 @@
     <Filter Include="Physics">
       <UniqueIdentifier>{3fb09f2e-7f68-4245-96df-4f82f961759a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Renderer">
-      <UniqueIdentifier>{1daf9739-ec25-4a41-bb38-ab7842c43fd2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Utility">
       <UniqueIdentifier>{e449539b-55fd-4bd6-9e8a-570a7a5bbaa8}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core">
       <UniqueIdentifier>{d323d6b6-7b0c-4e3d-afcf-704138c62a80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="platform">
+      <UniqueIdentifier>{1f8f5d9b-8087-4607-b1ac-e80f56bfe22b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{ff7a1551-5c24-490b-8f03-8135e4557c6b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -53,6 +53,30 @@
       <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="Core\Window.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Scheduler.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Node.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="platform\Direct3DRenderer.cpp">
+      <Filter>platform</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera\Camera.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\GameObject.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="resource\Model.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="resource\ResourceService.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\ObjectManager.cpp">
       <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
@@ -89,6 +113,36 @@
       <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="Core\Window.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Scheduler.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Node.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="platform\Direct3DRenderer.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="platform\Renderer_platform.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Renderer.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera\Camera.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\GameObject.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="resource\Model.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="resource\ResourceService.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\ObjectManager.h">
       <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>

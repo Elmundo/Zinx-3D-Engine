@@ -73,6 +73,8 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -82,23 +84,41 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Camera\Camera.cpp" />
     <ClCompile Include="Core\Application.cpp" />
     <ClCompile Include="Core\Director.cpp" />
+    <ClCompile Include="Core\ObjectManager.cpp" />
+    <ClCompile Include="Core\Scheduler.cpp" />
     <ClCompile Include="Core\Window.cpp" />
     <ClCompile Include="Input\Input.cpp" />
     <ClCompile Include="Log\Log.cpp" />
+    <ClCompile Include="Object\GameObject.cpp" />
+    <ClCompile Include="Object\Node.cpp" />
     <ClCompile Include="Object\Object.cpp" />
+    <ClCompile Include="platform\Direct3DRenderer.cpp" />
+    <ClCompile Include="resource\Model.cpp" />
+    <ClCompile Include="resource\ResourceService.cpp" />
     <ClCompile Include="SkyBox.cpp" />
     <ClCompile Include="Utility\Math.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera\Camera.h" />
     <ClInclude Include="Core\Application.h" />
     <ClInclude Include="Core\Director.h" />
+    <ClInclude Include="Core\ObjectManager.h" />
+    <ClInclude Include="Core\Renderer.h" />
+    <ClInclude Include="Core\Scheduler.h" />
     <ClInclude Include="Core\Window.h" />
     <ClInclude Include="Input\Input.h" />
     <ClInclude Include="Input\InputEnum.h" />
     <ClInclude Include="Log\Log.h" />
+    <ClInclude Include="Object\GameObject.h" />
+    <ClInclude Include="Object\Node.h" />
     <ClInclude Include="Object\Object.h" />
+    <ClInclude Include="platform\Direct3DRenderer.h" />
+    <ClInclude Include="platform\Renderer_platform.h" />
+    <ClInclude Include="resource\Model.h" />
+    <ClInclude Include="resource\ResourceService.h" />
     <ClInclude Include="SkyBox.h" />
     <ClInclude Include="Utility\ClassHelper.h" />
     <ClInclude Include="Utility\Config.h" />

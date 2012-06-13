@@ -4,6 +4,9 @@
 #include <d3d9.h>
 //#include "Camera\Camera.h"
 #include <Utility\Macros.h>
+#include "Core/Renderer.h"
+
+CHAOS_ENGINE_BEGIN
 
 class CHAOS_DLL SkyBox{
 public:
@@ -18,16 +21,17 @@ public:
 
 	LPDIRECT3DTEXTURE9 pSkyTextures[6];
 
-	LPDIRECT3DDEVICE9 pDirect3DDevice;
+	LPDIRECT3DDEVICE9 _renderer;
 
 	D3DXMATRIX* pCoordMatrix;
 
 
 	//Methods
-	SkyBox(LPDIRECT3DDEVICE9 pDirect3DDevice);
+	SkyBox();
 	bool RenderSkyBox();
 
 };
 
+CHAOS_ENGINE_END
 
 

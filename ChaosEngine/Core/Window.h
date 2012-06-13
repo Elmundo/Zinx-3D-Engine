@@ -8,7 +8,7 @@ Description: Responsible for creating, managing window and windows message archi
 
 -------------------------------------------------------------------------
 History:
-- 2012-04-06   : Created by Baris YILMAZ
+- 04-06-2012   : Created by Baris YILMAZ
 
 *********************************************************************/
 
@@ -24,16 +24,21 @@ class CHAOS_DLL Window: public Object {
 private:
 	static Window* _instance;
 	HWND _hwnd;
+	std::string _windowClassName;
+	FLOAT _width;
+	FLOAT _height;
 
 public:
-
 	Window();
 	virtual ~Window();
 
 	bool create(LPCTSTR title, int w, int h);
 	LRESULT CALLBACK windowProc(HWND hWnd, UINT uMessage, WPARAM wParam, LPARAM lParam);
 	HWND getHwnd();
+	virtual void release();
 	static Window* instance();
+	void centerWindowPosition();
+
 };
 
 CHAOS_ENGINE_END
