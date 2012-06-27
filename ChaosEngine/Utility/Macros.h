@@ -40,6 +40,7 @@ History:
 
 #define CE_CLEAR(p) ZeroMemory(p, sizeof(*p))
 
+#define CE_FUNCTION(func) void (*func)(void)
 /*
  *	Generic Typedefs
  */

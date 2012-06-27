@@ -5,15 +5,15 @@ CHAOS_ENGINE_BEGIN
 
 GameObject::GameObject()
 {
+	_isResourceAvailable = false;
+	Math::identity(&_position);
 	ObjectManager::instance()->addChild(this);
 }
 
-GameObject::GameObject(std::string modelName)
-{
-	Math::identity(&_position);
-
-	ObjectManager::instance()->addChild(this);
+void GameObject::setResource(std::string modelName){
 	_model = ResourceService::instance()->getModel(modelName);
+	if(_model)
+		_isResourceAvailable = true;
 }
 
 void GameObject::render()
@@ -29,7 +29,7 @@ void GameObject::setTransform()
 
 void GameObject::drawModel()
 {
-	if(!_model || !_model->mesh)
+	if(!_isResourceAvailable || !_model->mesh)
 		return;
 
 	HRESULT result;
@@ -41,9 +41,19 @@ void GameObject::drawModel()
 	}
 }
 
+void GameObject::move(float x = 0.0, float y = 0.0, float z = 0.0){
+	Math::matrix translate;
+	
+	Math::identity(&translate);
+	Math::translation(&translate, x, y, z);
+	Math::multiply(&_position, &_position, &translate);
+}
+
 
 void GameObject::release()
 {
+	ObjectManager::instance()->removeChild(this);
+
 	Node::release();
 }
 
@@ -51,7 +61,6 @@ GameObject::~GameObject()
 {
 
 }
-
 
 /*
  *	Getter & Setter

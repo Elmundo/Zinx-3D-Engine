@@ -1,5 +1,6 @@
 #include "Core/Window.h"
 #include "Core/Director.h"
+#include "Input/InputManager.h"
 
 CHAOS_ENGINE_BEGIN
 
@@ -66,6 +67,19 @@ bool Window::create( LPCTSTR title, int w, int h )
 							hinstance,											// Instance
 							this );
 
+	/*_hwnd = CreateWindowEx(NULL,
+		wndclass.lpszClassName,
+		title,
+		WS_EX_TOPMOST | WS_POPUP,    // fullscreen values
+		0, 0,    // the starting x and y positions should be 0
+		w, h,
+		NULL,
+		NULL,
+		hinstance,
+		NULL);*/
+
+	
+
 	if (!_hwnd)
 	{
 		result = HRESULT_FROM_WIN32(GetLastError());
@@ -107,7 +121,22 @@ LRESULT CALLBACK Window::windowProc( HWND hWnd, UINT uMessage, WPARAM wParam, LP
 		break;
 
 	case WM_MOUSEMOVE:
+			static POINT cursor; //Refactor later;
+			POINT cur;
+			GetCursorPos(&cur);
 
+			if ((cursor.x != cur.x) || (cursor.y != cur.y))
+			{
+				RECT rect;
+				//GetClientRect(hWnd, rect);
+
+				GetWindowRect(GetDesktopWindow(),(LPRECT)&rect);
+
+				InputManager::instance()->onMouseMove(cursor);
+				SetCursorPos(rect.right/2,rect.bottom/2);
+				cursor.x = cur.x;
+				cursor.y = cur.y;
+			}
 		break;
 
 	case WM_LBUTTONUP:
@@ -126,10 +155,14 @@ LRESULT CALLBACK Window::windowProc( HWND hWnd, UINT uMessage, WPARAM wParam, LP
 		break;
 	case WM_KEYDOWN:
 
+			InputManager::instance()->onKeyDown(wParam);
+
 		break;
 	case WM_KEYUP:
 
-		break;
+			InputManager::instance()->onKeyUp(wParam);
+
+		break;	
 	case WM_CHAR:
 		{
 			if (wParam < 0x20)

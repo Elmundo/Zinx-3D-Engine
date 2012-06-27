@@ -35,8 +35,9 @@ public:
 	virtual bool initInstance();
 	virtual bool applicationLaunched();
 
-	int run();
 	void setRenderInterval(double interval);
+	virtual int run();
+	virtual void release();
 	static Application* instance();
 };
 

@@ -16,17 +16,16 @@ private:
 	std::fstream _logFile;
 	
 	Log(){
-		_logFile.open("EngineLog.txt", std::fstream::out);
+		_logFile.open("\EngineLog.txt", std::fstream::out);
 		
 		if(!_logFile.is_open()){
-			throw false; //Throw an exception here, use LogException instead of boolean value
+			throw false; //Throw an exception here, use LogError instead of boolean value
 		}
-
-		//info(ClassHelper::getClassName(this), "Log()", "Log system is initialized!");
 	}
 
 	virtual ~Log(){
 		_logFile.close();
+		_instance = NULL;
 	}
 public:
 	void debug(std::string className, std::string methodName, std::string message);

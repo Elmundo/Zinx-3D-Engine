@@ -24,7 +24,7 @@ void ObjectManager::removeChild( GameObject* gameObject )
 		if ((*it) == gameObject)
 		{
 			_root.erase(it);
-			gameObject->release();
+			//gameObject->release(); //Not sure of it
 		}
 	}
 }
@@ -45,6 +45,13 @@ ObjectManager* ObjectManager::instance()
 		_instance = new ObjectManager();
 
 	return _instance;
+}
+
+void ObjectManager::release()
+{
+	_root.clear();
+
+	Object::release();
 }
 
 ObjectManager::~ObjectManager()

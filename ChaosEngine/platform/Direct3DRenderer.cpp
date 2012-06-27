@@ -79,6 +79,15 @@ bool Renderer::setDeviceAttributes()
 {
 	HWND hwnd = Window::instance()->getHwnd();
 
+	/*_deviceAttributes.Windowed = FALSE;
+	_deviceAttributes.SwapEffect = D3DSWAPEFFECT_DISCARD;
+	_deviceAttributes.hDeviceWindow = hwnd; 
+	_deviceAttributes.BackBufferFormat = D3DFMT_X8R8G8B8;
+	_deviceAttributes.BackBufferWidth = SCREEN_HEIGHT; 
+	_deviceAttributes.BackBufferHeight = SCREEN_WIDTH; 
+	_deviceAttributes.EnableAutoDepthStencil = true;
+	_deviceAttributes.AutoDepthStencilFormat = D3DFMT_D16;*/
+
 	_deviceAttributes.Windowed                   = true;
 	_deviceAttributes.SwapEffect                 = D3DSWAPEFFECT_DISCARD;
 	_deviceAttributes.MultiSampleQuality         = 0;

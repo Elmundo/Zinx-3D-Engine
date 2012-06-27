@@ -33,6 +33,7 @@ public:
 	void removeChild(GameObject* gameObject);
 	void visit();
 
+	virtual void release();
 	static ObjectManager* instance();
 };
 

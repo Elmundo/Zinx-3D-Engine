@@ -29,6 +29,4 @@ Object::~Object()
 	--_objectCount;
 }
 
-
-
 CHAOS_ENGINE_END

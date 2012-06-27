@@ -86,10 +86,6 @@ Application* Application::instance(){
 
 bool Application::initInstance()
 {
-	ResourceService::instance()->loadResource("troll2.X");
-
-	GameObject* gameObject = new GameObject("troll2.X");
-
 	return true;
 }
 
@@ -97,6 +93,13 @@ bool Application::applicationLaunched()
 {
 	//Override this method
 	return true;
+}
+
+void Application::release()
+{
+	Director::instance()->end();
+
+	Object::release();
 }
 
 Application::~Application()

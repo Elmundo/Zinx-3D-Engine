@@ -9,19 +9,18 @@ CHAOS_ENGINE_BEGIN
 
 Director* Director::_instance;
 bool Director::isFirstStart = true;
-SkyBox* skybox;
+SkyBox* skybox; //delete
 
 Director::Director()
 {
-	skybox = new SkyBox();
+	skybox = new SkyBox(); //delete
+	_isPaused = false;
 }
 
 void Director::mainLoop()
 {
 	if (!_isPaused)
-	{
 		Scheduler::instance()->tick();
-	}
 
 	render();
 }
@@ -35,8 +34,8 @@ bool Director::render(){
 
 	Renderer::instance()->stopRender();
 	return true;
-
 }
+
 Director* Director::instance()
 {
 	if (!_instance)
@@ -52,16 +51,18 @@ void Director::showFPS()
 
 void Director::end()
 {
-	Window::instance()->release();
-	Renderer::instance()->release();
-	Camera::instance()->release();
-	Scheduler::instance()->release();
 	this->release();
 }
 
 void Director::release()
 {
-	delete this;
+	Window::instance()->release();
+	Renderer::instance()->release();
+	Camera::instance()->release();
+	Scheduler::instance()->release();
+	ObjectManager::instance()->release();
+
+	Object::release();
 }
 
 Director::~Director()

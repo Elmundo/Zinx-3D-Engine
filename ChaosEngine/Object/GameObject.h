@@ -22,9 +22,10 @@ History:
 CHAOS_ENGINE_BEGIN
 
 class CHAOS_DLL GameObject: public Node{
-private:
+protected:
 
 	Model* _model;
+	bool _isResourceAvailable;
 
 	Math::matrix _position;
 	Math::matrix _combined;
@@ -49,7 +50,9 @@ public:
 	Math::matrix rotate();
 	Math::vector3 direction();
 
-	void render(); //this could be visit
+	void move(float x, float y, float z);
+	void setResource(std::string modelName);
+	virtual void render(); //this could be visit
 	void setTransform();
 	virtual void release();
 	

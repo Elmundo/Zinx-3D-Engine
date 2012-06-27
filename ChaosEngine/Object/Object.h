@@ -18,6 +18,9 @@ History:
 #include "Utility/Macros.h"
 #include "Utility/Config.h"
 #include <Windows.h>
+#include <iostream>
+#include <map>
+#include <vector>
 
 CHAOS_ENGINE_BEGIN
 

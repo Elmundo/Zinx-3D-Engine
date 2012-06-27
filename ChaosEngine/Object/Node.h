@@ -16,9 +16,6 @@ History:
 #define __NODE_H__
 
 #include "Object/Object.h"
-#include <iostream>
-#include <map>
-#include <vector>
 
 CHAOS_ENGINE_BEGIN
 

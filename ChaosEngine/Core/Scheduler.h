@@ -16,18 +16,24 @@ History:
 #define __SCHEDULER_H__
 
 #include "Object/Node.h"
+#include "Object/UpdatedObject.h"
 
 CHAOS_ENGINE_BEGIN
 
-class CHAOS_DLL Scheduler: public Node{
+class CHAOS_DLL Scheduler: public Object{
 private:
 	static Scheduler* _instance;
+
+	std::vector<UpdatedObject*> _updatedList;
 
 public:
 	Scheduler();
 	virtual ~Scheduler();
 
 	void tick();
+	void addChild(UpdatedObject* object);
+	void removeChild(UpdatedObject* object);
+
 	virtual void release();
 	static Scheduler* instance();
 };
