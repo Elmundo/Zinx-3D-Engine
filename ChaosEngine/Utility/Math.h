@@ -7,6 +7,8 @@
 #include <iostream>
 #include <Utility/Macros.h>
 
+CHAOS_ENGINE_BEGIN
+
 class CHAOS_DLL Math{
 public:
 	typedef D3DXVECTOR3 vector3;
@@ -41,5 +43,7 @@ public:
 	static double sin(double angle);
 	static double cos(double angle);
 };
+
+CHAOS_ENGINE_END
 
 #endif

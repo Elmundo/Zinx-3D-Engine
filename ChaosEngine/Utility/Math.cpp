@@ -1,5 +1,6 @@
 #include "Utility\Math.h"
 
+CHAOS_ENGINE_BEGIN
 
 	void Math::normalize(vector3* target, vector3* source){
 		D3DXVec3Normalize(target, source);
@@ -86,6 +87,8 @@
 	float Math::cos(float angle){
 		return std::cos(angle);
 	}
+
+CHAOS_ENGINE_END
 
 	//add Random math
 

@@ -18,22 +18,31 @@ History:
 #include "Object/Node.h"
 #include "resource/ResourceService.h"
 #include "Utility/Math.h"
+#include "Core/Renderer.h"
 
 CHAOS_ENGINE_BEGIN
+
+class ObjectManager;
+enum DirectionEnum;
 
 class CHAOS_DLL GameObject: public Node{
 protected:
 
+	Renderer* _renderer;
+	ObjectManager* _objectManager;
+	ResourceService* _resourceService;
+
 	Model* _model;
 	bool _isResourceAvailable;
 
-	Math::matrix _position;
+	Math::matrix _positionMat;
 	Math::matrix _combined;
 
 	Math::matrix _scale;
 	Math::matrix _translate;
 	Math::matrix _rotate;
 
+	Math::vector3 _position;
 	Math::vector3 _direction;
 
 	void drawModel();
@@ -50,12 +59,19 @@ public:
 	Math::matrix rotate();
 	Math::vector3 direction();
 
-	void move(float x, float y, float z);
+	void move(DirectionEnum direction);
 	void setResource(std::string modelName);
 	virtual void render(); //this could be visit
 	void setTransform();
 	virtual void release();
 	
+};
+
+enum CHAOS_DLL DirectionEnum{
+	FORWARD = 0,
+	BACKWARD,
+	LEFT,
+	RIGHT
 };
 
 CHAOS_ENGINE_END

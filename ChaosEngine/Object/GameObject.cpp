@@ -1,17 +1,26 @@
 #include "Object/GameObject.h"
 #include "Core/ObjectManager.h"
+#include <math.h>
+#include "d3dx9math.h"
 
 CHAOS_ENGINE_BEGIN
 
 GameObject::GameObject()
 {
+	_renderer        = Renderer::instance();
+	_objectManager   = ObjectManager::instance();
+	_resourceService = ResourceService::instance(); 
+
 	_isResourceAvailable = false;
-	Math::identity(&_position);
-	ObjectManager::instance()->addChild(this);
+	_position.x = _position.y = _position.z = _direction.y = 0.0f;
+	_direction.x = 1.0f;
+	_direction.z = 1.0f;
+
+	_objectManager->addChild(this);
 }
 
 void GameObject::setResource(std::string modelName){
-	_model = ResourceService::instance()->getModel(modelName);
+	_model = _resourceService->getModel(modelName);
 	if(_model)
 		_isResourceAvailable = true;
 }
@@ -24,7 +33,14 @@ void GameObject::render()
 
 void GameObject::setTransform()
 {
-	Renderer::instance()->getDevice()->SetTransform(D3DTS_WORLD, &_position);
+	Math::matrix translation;
+	Math::matrix rotation;
+
+	Math::translation(&translation, _position.x, _position.y, _position.z);
+	Math::rotationY(&rotation, D3DXToRadian(_direction.y));
+	Math::multiply(&translation, &rotation, &translation);
+
+	_renderer->getDevice()->SetTransform(D3DTS_WORLD, &translation);
 }
 
 void GameObject::drawModel()
@@ -36,31 +52,44 @@ void GameObject::drawModel()
 
 	for (UINT i = 0; i < _model->materialNum; ++i)
 	{ 
-		result = Renderer::instance()->getDevice()->SetMaterial(&_model->materials[i]);
+		result = _renderer->getDevice()->SetMaterial(&_model->materials[i]);
 		result = _model->mesh->DrawSubset(i);
 	}
 }
 
-void GameObject::move(float x = 0.0, float y = 0.0, float z = 0.0){
-	Math::matrix translate;
-	
-	Math::identity(&translate);
-	Math::translation(&translate, x, y, z);
-	Math::multiply(&_position, &_position, &translate);
-}
+void GameObject::move(DirectionEnum direction){
 
+	if (direction == DirectionEnum::BACKWARD) {
+
+		_direction.x = -1;
+		_position.x -= _direction.x * -sin(D3DXToRadian(_direction.y));
+		_position.z += _direction.x * cos(D3DXToRadian(_direction.y));
+
+	}else if (direction == DirectionEnum::FORWARD) {
+
+		_direction.x = 1;
+		_position.x -= _direction.x * -sin(D3DXToRadian(_direction.y));
+		_position.z += _direction.x * cos(D3DXToRadian(_direction.y));
+
+	}else if (direction == DirectionEnum::RIGHT) {
+
+		_direction.y += 5.0f;
+
+	}else if (direction == DirectionEnum::LEFT) {
+
+		_direction.y -= 5.0f;
+	}
+
+}
 
 void GameObject::release()
 {
-	ObjectManager::instance()->removeChild(this);
+	_objectManager->removeChild(this);
 
 	Node::release();
 }
 
-GameObject::~GameObject()
-{
-
-}
+GameObject::~GameObject() {}
 
 /*
  *	Getter & Setter
