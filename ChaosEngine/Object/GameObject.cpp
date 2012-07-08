@@ -61,13 +61,13 @@ void GameObject::move(DirectionEnum direction){
 
 	if (direction == DirectionEnum::BACKWARD) {
 
-		_direction.x = -1;
+		_direction.x = -MOVE_RATE;
 		_position.x -= _direction.x * -sin(D3DXToRadian(_direction.y));
 		_position.z += _direction.x * cos(D3DXToRadian(_direction.y));
 
 	}else if (direction == DirectionEnum::FORWARD) {
 
-		_direction.x = 1;
+		_direction.x = MOVE_RATE;
 		_position.x -= _direction.x * -sin(D3DXToRadian(_direction.y));
 		_position.z += _direction.x * cos(D3DXToRadian(_direction.y));
 
@@ -94,11 +94,6 @@ GameObject::~GameObject() {}
 /*
  *	Getter & Setter
  */
-Math::matrix GameObject::position(){ return _position;}
-Math::matrix GameObject::combined(){ return _combined;}
-Math::matrix GameObject::scale(){ return _scale;}
-Math::matrix GameObject::translate(){ return _translate;}
-Math::matrix GameObject::rotate(){ return _rotate;}
 Math::vector3 GameObject::direction(){ return _direction;}
 
 CHAOS_ENGINE_END

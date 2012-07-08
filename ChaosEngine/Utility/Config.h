@@ -24,5 +24,6 @@ History:
 #define FOVY   45.0f
 #define SCREEN_WIDTH  800
 #define SCREEN_HEIGHT 600
+#define MOVE_RATE 1
 
 #endif

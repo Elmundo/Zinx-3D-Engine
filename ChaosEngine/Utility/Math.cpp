@@ -74,18 +74,18 @@ CHAOS_ENGINE_BEGIN
 	}
 
 	double Math::sin(double angle){
-		return std::sin(angle);
+		return sin(angle);
 	}
 
 	float Math::sin(float angle){
-		return std::sin(angle);
+		return sin(angle);
 	}
 	double Math::cos(double angle){
-		return std::cos(angle);
+		return cos(angle);
 	}
 
 	float Math::cos(float angle){
-		return std::cos(angle);
+		return cos(angle);
 	}
 
 CHAOS_ENGINE_END

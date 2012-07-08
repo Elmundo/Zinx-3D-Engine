@@ -26,24 +26,18 @@ class ObjectManager;
 enum DirectionEnum;
 
 class CHAOS_DLL GameObject: public Node{
-protected:
 
-	Renderer* _renderer;
-	ObjectManager* _objectManager;
+private:
+	Renderer*        _renderer;
+	ObjectManager*   _objectManager;
 	ResourceService* _resourceService;
 
+protected:
 	Model* _model;
-	bool _isResourceAvailable;
-
-	Math::matrix _positionMat;
-	Math::matrix _combined;
-
-	Math::matrix _scale;
-	Math::matrix _translate;
-	Math::matrix _rotate;
-
 	Math::vector3 _position;
 	Math::vector3 _direction;
+
+	bool _isResourceAvailable;
 
 	void drawModel();
 public:
@@ -52,17 +46,11 @@ public:
 
 	virtual ~GameObject();
 
-	Math::matrix position();
-	Math::matrix combined();
-	Math::matrix scale();
-	Math::matrix translate();
-	Math::matrix rotate();
 	Math::vector3 direction();
-
 	void move(DirectionEnum direction);
 	void setResource(std::string modelName);
-	virtual void render(); //this could be visit
 	void setTransform();
+	virtual void render(); //this could be visit
 	virtual void release();
 	
 };
