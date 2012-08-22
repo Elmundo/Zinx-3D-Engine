@@ -11,7 +11,8 @@ GameObject::GameObject()
 	_objectManager   = ObjectManager::instance();
 	_resourceService = ResourceService::instance(); 
 
-	_isResourceAvailable = false;
+	_isModelAvailable = false;
+	_isTextureAvailable  = false;
 	_position.x = _position.y = _position.z = _direction.y = 0.0f;
 	_direction.x = 1.0f;
 	_direction.z = 1.0f;
@@ -19,15 +20,23 @@ GameObject::GameObject()
 	_objectManager->addChild(this);
 }
 
-void GameObject::setResource(std::string modelName){
-	_model = _resourceService->getModel(modelName);
-	if(_model)
-		_isResourceAvailable = true;
+void GameObject::setResource(std::string modelName, std::string textureName=""){
+	_model   = _resourceService->getModel(modelName);
+
+	if (textureName.c_str())	
+		_texture = _resourceService->getTexture(textureName);
+
+	if(_model) 
+		_isModelAvailable = true;
+
+	if(_texture)
+		_isTextureAvailable = true;
 }
 
 void GameObject::render()
 {
 	setTransform();
+	drawTexture();
 	drawModel();
 }
 
@@ -45,11 +54,10 @@ void GameObject::setTransform()
 
 void GameObject::drawModel()
 {
-	if(!_isResourceAvailable || !_model->mesh)
+	if(!_isModelAvailable || !_model->mesh)
 		return;
 
 	HRESULT result;
-
 	for (UINT i = 0; i < _model->materialNum; ++i)
 	{ 
 		result = _renderer->getDevice()->SetMaterial(&_model->materials[i]);
@@ -57,10 +65,14 @@ void GameObject::drawModel()
 	}
 }
 
+void GameObject::drawTexture(){
+	if (_texture)
+		_renderer->getDevice()->SetTexture(0, _texture->texture);
+}
+
 void GameObject::move(DirectionEnum direction){
 
 	if (direction == DirectionEnum::BACKWARD) {
-
 		_direction.x = -MOVE_RATE;
 		_position.x -= _direction.x * -sin(D3DXToRadian(_direction.y));
 		_position.z += _direction.x * cos(D3DXToRadian(_direction.y));

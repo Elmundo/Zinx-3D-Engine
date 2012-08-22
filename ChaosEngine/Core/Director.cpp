@@ -9,11 +9,11 @@ CHAOS_ENGINE_BEGIN
 
 Director* Director::_instance;
 bool Director::isFirstStart = true;
-SkyBox* skybox; //delete
+SkyBox* skybox; //TODO: delete
 
 Director::Director()
 {
-	skybox = new SkyBox(); //delete
+	skybox = new SkyBox(); //TODO: delete
 	_isPaused = false;
 }
 
@@ -29,8 +29,8 @@ bool Director::render(){
 	
 	Renderer::instance()->startRender();
 		
+		skybox->RenderSkyBox(); //TODO: delete
 		ObjectManager::instance()->visit();
-		skybox->RenderSkyBox();
 
 	Renderer::instance()->stopRender();
 	return true;

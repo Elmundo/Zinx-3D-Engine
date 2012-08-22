@@ -31,9 +31,6 @@
     <Filter Include="resource">
       <UniqueIdentifier>{ff7a1551-5c24-490b-8f03-8135e4557c6b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="message">
-      <UniqueIdentifier>{2bad9404-72bf-498d-a98f-2735d0c16eda}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Log\Log.cpp">
@@ -85,11 +82,8 @@
     <ClCompile Include="Object\UpdatedObject.cpp">
       <Filter>Object</Filter>
     </ClCompile>
-    <ClCompile Include="message\MessageManager.cpp">
-      <Filter>message</Filter>
-    </ClCompile>
-    <ClCompile Include="Object\InteractiveObject.cpp">
-      <Filter>Object</Filter>
+    <ClCompile Include="resource\Texture.cpp">
+      <Filter>resource</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -160,14 +154,8 @@
     <ClInclude Include="Object\UpdatedObject.h">
       <Filter>Object</Filter>
     </ClInclude>
-    <ClInclude Include="message\MessageManager.h">
-      <Filter>message</Filter>
-    </ClInclude>
-    <ClInclude Include="Object\InteractiveObject.h">
-      <Filter>Object</Filter>
-    </ClInclude>
-    <ClInclude Include="message\Message.h">
-      <Filter>message</Filter>
+    <ClInclude Include="resource\Texture.h">
+      <Filter>resource</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

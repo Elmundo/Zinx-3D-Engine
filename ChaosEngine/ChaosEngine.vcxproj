@@ -14,18 +14,21 @@
     <ProjectGuid>{24EDD299-F0F4-4209-BC2F-3DC0F1071DF4}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>ChaosEngine</RootNamespace>
+    <VCTargetsPath Condition="'$(VCTargetsPath11)' != '' and '$(VSVersion)' == '' and $(VisualStudioVersion) == ''">$(VCTargetsPath11)</VCTargetsPath>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -53,6 +56,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_USRDLL;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DisableSpecificWarnings>4251;4996;4267;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <AdditionalIncludeDirectories>$(ProjectDir);D:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -63,6 +67,9 @@
       <AdditionalLibraryDirectories>D:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>d3d9.lib;d3dx9.lib;dinput8.lib;dxguid.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -92,15 +99,14 @@
     <ClCompile Include="Core\Window.cpp" />
     <ClCompile Include="Input\InputManager.cpp" />
     <ClCompile Include="Log\Log.cpp" />
-    <ClCompile Include="message\MessageManager.cpp" />
     <ClCompile Include="Object\GameObject.cpp" />
-    <ClCompile Include="Object\InteractiveObject.cpp" />
     <ClCompile Include="Object\Node.cpp" />
     <ClCompile Include="Object\Object.cpp" />
     <ClCompile Include="Object\UpdatedObject.cpp" />
     <ClCompile Include="platform\Direct3DRenderer.cpp" />
     <ClCompile Include="resource\Model.cpp" />
     <ClCompile Include="resource\ResourceService.cpp" />
+    <ClCompile Include="resource\Texture.cpp" />
     <ClCompile Include="SkyBox.cpp" />
     <ClCompile Include="Utility\Math.cpp" />
   </ItemGroup>
@@ -115,10 +121,7 @@
     <ClInclude Include="Input\InputManager.h" />
     <ClInclude Include="Input\InputEnum.h" />
     <ClInclude Include="Log\Log.h" />
-    <ClInclude Include="message\Message.h" />
-    <ClInclude Include="message\MessageManager.h" />
     <ClInclude Include="Object\GameObject.h" />
-    <ClInclude Include="Object\InteractiveObject.h" />
     <ClInclude Include="Object\Node.h" />
     <ClInclude Include="Object\Object.h" />
     <ClInclude Include="Object\UpdatedObject.h" />
@@ -126,6 +129,7 @@
     <ClInclude Include="platform\Renderer_platform.h" />
     <ClInclude Include="resource\Model.h" />
     <ClInclude Include="resource\ResourceService.h" />
+    <ClInclude Include="resource\Texture.h" />
     <ClInclude Include="SkyBox.h" />
     <ClInclude Include="Utility\ClassHelper.h" />
     <ClInclude Include="Utility\Config.h" />

@@ -36,7 +36,6 @@ void ObjectManager::visit()
 	{
 		(*it)->render();
 	}
-	
 }
 
 ObjectManager* ObjectManager::instance()

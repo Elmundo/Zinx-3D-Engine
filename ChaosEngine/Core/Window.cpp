@@ -36,7 +36,6 @@ bool Window::create( LPCTSTR title, int w, int h )
 	HINSTANCE hinstance = GetModuleHandle(NULL);
 	WNDCLASS wndclass;
 
-	
 	ZeroMemory(&wndclass, sizeof(WNDCLASS));
 	
 	wndclass.cbClsExtra = 0;

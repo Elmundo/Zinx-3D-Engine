@@ -16,6 +16,7 @@ History:
 #define __RESOURCE_SERVICE_H__
 
 #include "resource/Model.h"
+#include "resource/Texture.h"
 #include "Object/Node.h"
 
 CHAOS_ENGINE_BEGIN
@@ -24,17 +25,20 @@ class CHAOS_DLL ResourceService: public Object{
 private:
 	static ResourceService* _instance;
 	std::vector<Model*> _modelList;
+	std::vector<Texture*> _textureList;
 
 public:
 	ResourceService();
 	virtual ~ResourceService();
 
 	bool loadResource(std::string resourceName);
+	bool loadTextureResource(std::string textureName);
 	bool removeResource(std::string resourceName);
 	Model* loadModel(std::string name);
-	bool loadTexture(std::string name);
+	Texture* loadTexture(std::string name);
 
 	Model* getModel(std::string name);
+	Texture* getTexture(std::string name);
 
 	static ResourceService* instance();
 	virtual void release();

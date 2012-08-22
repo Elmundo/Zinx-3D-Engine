@@ -57,7 +57,7 @@ void Camera::setView()
 	(_view)(3, 1) = y;
 	(_view)(3, 2) = z;
 	(_view)(3, 3) = 1.0f;
-
+	
 	//Transform the view state
 	Renderer::instance()->setTransform(&_view);
 }

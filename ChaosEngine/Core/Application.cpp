@@ -13,7 +13,6 @@ Application::Application(){
 	_windowInstance = GetModuleHandle(NULL);
 	_renderInterval.QuadPart = 0;
 	_instance = this;
-
 }
 
 int Application::run(){

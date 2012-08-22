@@ -11,9 +11,25 @@ ResourceService::ResourceService()
 
 bool ResourceService::loadResource(std::string resourceName)
 {
-	_modelList.push_back(loadModel(resourceName));
+	Model* model = loadModel(resourceName);
+	if (model)
+	{
+		_modelList.push_back(model);
+		return true;
+	}
 
-	return true;
+	return false;
+}
+
+bool ResourceService::loadTextureResource(std::string textureName){
+	Texture* texture = loadTexture(textureName);
+	if (texture)
+	{
+		_textureList.push_back(texture);
+		return true;
+	}
+
+	return false;
 }
 
 bool ResourceService::removeResource( std::string resourceName )
@@ -84,9 +100,16 @@ Model* ResourceService::loadModel(std::string name)
 	return model;
 }
 
-bool ResourceService::loadTexture(std::string name)
+Texture* ResourceService::loadTexture(std::string name)
 {
-	return true;
+	Texture* texture = new Texture(name);
+
+	HRESULT result = D3DXCreateTextureFromFileA(Renderer::instance()->getDevice(), name.c_str(), &texture->texture);
+
+	if (result != S_OK)
+		MessageBox(NULL, "The Texture is not found!", "ResourceService", 0);
+
+	return texture;
 }
 
 ResourceService* ResourceService::instance()
@@ -123,11 +146,20 @@ Model* ResourceService::getModel( std::string name )
 	return NULL;
 }
 
-/*
-Model* ResourceService::getModel( std::string name )
+Texture*ResourceService:: getTexture(std::string name)
 {
-	//return (Model*)_modelDic[name];
-	return new Model();
-}*/
+	std::vector<Texture*>::iterator it;
+	it = _textureList.begin();
+	
+	for (; it != _textureList.end(); ++it)
+	{
+		Texture* texture = (*it);
+		if(texture->name.compare(name) == 0){
+			return texture;
+		}
+	}
+
+	return NULL;
+}
 
 CHAOS_ENGINE_END

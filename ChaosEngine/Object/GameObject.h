@@ -34,12 +34,15 @@ private:
 
 protected:
 	Model* _model;
+	Texture* _texture;
 	Math::vector3 _position;
 	Math::vector3 _direction;
 
-	bool _isResourceAvailable;
+	bool _isModelAvailable;
+	bool _isTextureAvailable;
 
 	void drawModel();
+	void drawTexture();
 public:
 	GameObject();
 	GameObject(std::string modelName);
@@ -48,7 +51,7 @@ public:
 
 	Math::vector3 direction();
 	void move(DirectionEnum direction);
-	void setResource(std::string modelName);
+	void setResource(std::string modelName, std::string textureName);
 	void setTransform();
 	virtual void render(); //this could be visit
 	virtual void release();
