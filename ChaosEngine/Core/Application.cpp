@@ -17,7 +17,7 @@ Application::Application(){
 
 int Application::run(){
 	
-	Log::instance()->info(ClassHelper::getClassName(this), "run", "ChaosEngine v0.1" );
+	//Log::instance()->info(ClassHelper::getClassName(this), "run", "ChaosEngine v0.1" );
 
 	MSG msg;
 	LARGE_INTEGER frequency;

@@ -7,10 +7,12 @@ Camera* Camera::_instance;
 
 Camera::Camera()
 {
+	_renderer = Renderer::instance();
+
 	_right		    = Math::vector3(1,0,0);
 	_up		    	= Math::vector3(0,1,0);
 	_look			= Math::vector3(0,0,1);
-	_cameraPosition = Math::vector3(0,0,0);
+	_cameraPosition = Math::vector3(0,20,0);
 
 	setView();
 }
@@ -59,7 +61,7 @@ void Camera::setView()
 	(_view)(3, 3) = 1.0f;
 	
 	//Transform the view state
-	Renderer::instance()->setTransform(&_view);
+	_renderer->setTransform(&_view);
 }
 
 void Camera::pitch( float angle )

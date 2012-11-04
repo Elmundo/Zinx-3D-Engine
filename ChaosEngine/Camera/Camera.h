@@ -19,9 +19,14 @@ History:
 
 CHAOS_ENGINE_BEGIN
 
+class Renderer;
+
 class CHAOS_DLL Camera: public Object{
 private:
 	static Camera* _instance;
+
+	Renderer* _renderer;
+
 	Math::matrix _view;
 	Math::vector3 _right;
 	Math::vector3 _up;

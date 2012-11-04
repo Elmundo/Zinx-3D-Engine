@@ -44,12 +44,13 @@ void GameObject::setTransform()
 {
 	Math::matrix translation;
 	Math::matrix rotation;
+	Math::matrix final;
 
 	Math::translation(&translation, _position.x, _position.y, _position.z);
 	Math::rotationY(&rotation, D3DXToRadian(_direction.y));
-	Math::multiply(&translation, &rotation, &translation);
+	Math::multiply(&final, &rotation, &translation);
 
-	_renderer->getDevice()->SetTransform(D3DTS_WORLD, &translation);
+	_renderer->getDevice()->SetTransform(D3DTS_WORLD, &final);
 }
 
 void GameObject::drawModel()

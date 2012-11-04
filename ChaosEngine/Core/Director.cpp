@@ -5,7 +5,7 @@
 //Delete later
 #include "SkyBox.h"
 
-CHAOS_ENGINE_BEGIN
+USING_CHAOS_ENGINE;
 
 Director* Director::_instance;
 bool Director::isFirstStart = true;
@@ -70,4 +70,3 @@ Director::~Director()
 	// Do some stuff
 }
 
-CHAOS_ENGINE_END
