@@ -8,6 +8,6 @@ Description:
 ----------
 Versions:
 ----------
-v0.01
+v0.2
 - Win32 Application setup
 - Direct3D Libs linked
