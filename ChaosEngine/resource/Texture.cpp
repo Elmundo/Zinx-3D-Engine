@@ -4,7 +4,7 @@ CHAOS_ENGINE_BEGIN
 
 Texture::Texture(std::string textureName){
 	// Construction method
-	name = textureName;
+	//name = textureName;
 }
 
 Texture::~Texture(){

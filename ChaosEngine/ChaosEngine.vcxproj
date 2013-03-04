@@ -135,6 +135,7 @@
     <ClInclude Include="Utility\Config.h" />
     <ClInclude Include="Utility\Macros.h" />
     <ClInclude Include="Utility\Math.h" />
+    <ClInclude Include="Utility\StringHelper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

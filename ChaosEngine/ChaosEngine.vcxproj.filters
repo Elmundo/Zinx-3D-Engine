@@ -157,5 +157,8 @@
     <ClInclude Include="resource\Texture.h">
       <Filter>resource</Filter>
     </ClInclude>
+    <ClInclude Include="Utility\StringHelper.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

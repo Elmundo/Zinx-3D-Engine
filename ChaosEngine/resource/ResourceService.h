@@ -24,8 +24,8 @@ CHAOS_ENGINE_BEGIN
 class CHAOS_DLL ResourceService: public Object{
 private:
 	static ResourceService* _instance;
-	std::vector<Model*> _modelList;
-	std::vector<Texture*> _textureList;
+	std::vector<Model*> _modelList; // Use hash maps instead
+	std::vector<Texture*> _textureList; // Use hash maps instead
 
 public:
 	ResourceService();
@@ -39,6 +39,7 @@ public:
 
 	Model* getModel(std::string name);
 	Texture* getTexture(std::string name);
+	std::string cutFilePathname(std::string name);
 
 	static ResourceService* instance();
 	virtual void release();

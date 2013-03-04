@@ -1,4 +1,5 @@
 #include "resource/ResourceService.h"
+#include "Utility/StringHelper.h"
 
 CHAOS_ENGINE_BEGIN
 
@@ -12,6 +13,7 @@ ResourceService::ResourceService()
 bool ResourceService::loadResource(std::string resourceName)
 {
 	Model* model = loadModel(resourceName);
+
 	if (model)
 	{
 		_modelList.push_back(model);
@@ -93,7 +95,7 @@ Model* ResourceService::loadModel(std::string name)
 				&model->boundingSphere.radius);
 
 	model->mesh->UnlockVertexBuffer();
-	
+	model->name = StringHelper::cutFilePathname(name);
 	if (result != S_OK)
 		MessageBox(NULL, "Model Bounding Sphere cannot be created!", "ResourceService", 0);
 
@@ -103,31 +105,15 @@ Model* ResourceService::loadModel(std::string name)
 Texture* ResourceService::loadTexture(std::string name)
 {
 	Texture* texture = new Texture(name);
+	texture->name = name;
 
 	HRESULT result = D3DXCreateTextureFromFileA(Renderer::instance()->getDevice(), name.c_str(), &texture->texture);
 
+	texture->name = StringHelper::cutFilePathname(name);
 	if (result != S_OK)
 		MessageBox(NULL, "The Texture is not found!", "ResourceService", 0);
 
 	return texture;
-}
-
-ResourceService* ResourceService::instance()
-{
-	if (!_instance)
-		_instance = new ResourceService();
-
-	return _instance;
-}
-
-void ResourceService::release()
-{
-
-}
-
-ResourceService::~ResourceService()
-{
-
 }
 
 Model* ResourceService::getModel( std::string name )
@@ -146,7 +132,7 @@ Model* ResourceService::getModel( std::string name )
 	return NULL;
 }
 
-Texture*ResourceService:: getTexture(std::string name)
+Texture* ResourceService:: getTexture(std::string name)
 {
 	std::vector<Texture*>::iterator it;
 	it = _textureList.begin();
@@ -160,6 +146,22 @@ Texture*ResourceService:: getTexture(std::string name)
 	}
 
 	return NULL;
+}
+
+ResourceService* ResourceService::instance()
+{
+	if (!_instance)
+		_instance = new ResourceService();
+
+	return _instance;
+}
+
+void ResourceService::release()
+{
+}
+
+ResourceService::~ResourceService()
+{
 }
 
 CHAOS_ENGINE_END

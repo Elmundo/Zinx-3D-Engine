@@ -65,12 +65,12 @@ SkyBox::SkyBox(){
 	// Load Textures.  I created a global array just to keep things simple.  The order of the images
 	// is VERY important.  The reason is the skybox mesh (g_SkyboxMesh[]) array was created above
 	// in this order. (ie. front, back, left, etc.)
-    hRet  = D3DXCreateTextureFromFile( _renderer, ("SkyBox_Front.jpg") , &pSkyTextures[0] );
-    hRet |= D3DXCreateTextureFromFile( _renderer, ("SkyBox_Back.jpg")  , &pSkyTextures[1] );
-    hRet |= D3DXCreateTextureFromFile( _renderer, ("SkyBox_Left.jpg")  , &pSkyTextures[2] );
-    hRet |= D3DXCreateTextureFromFile( _renderer, ("SkyBox_Right.jpg") , &pSkyTextures[3] );
-    hRet |= D3DXCreateTextureFromFile( _renderer, ("SkyBox_Top.jpg")   , &pSkyTextures[4] );
-    hRet |= D3DXCreateTextureFromFile( _renderer, ("SkyBox_Bottom.jpg"), &pSkyTextures[5] );
+    hRet  = D3DXCreateTextureFromFile( _renderer, ("Resource/SkyBox_Front.jpg") , &pSkyTextures[0] );
+    hRet |= D3DXCreateTextureFromFile( _renderer, ("Resource/SkyBox_Back.jpg")  , &pSkyTextures[1] );
+    hRet |= D3DXCreateTextureFromFile( _renderer, ("Resource/SkyBox_Left.jpg")  , &pSkyTextures[2] );
+    hRet |= D3DXCreateTextureFromFile( _renderer, ("Resource/SkyBox_Right.jpg") , &pSkyTextures[3] );
+    hRet |= D3DXCreateTextureFromFile( _renderer, ("Resource/SkyBox_Top.jpg")   , &pSkyTextures[4] );
+    hRet |= D3DXCreateTextureFromFile( _renderer, ("Resource/SkyBox_Bottom.jpg"), &pSkyTextures[5] );
 }
 
 bool SkyBox::RenderSkyBox(){
