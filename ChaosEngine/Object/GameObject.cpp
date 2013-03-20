@@ -2,6 +2,7 @@
 #include "Core/ObjectManager.h"
 #include <math.h>
 #include "d3dx9math.h"
+#include "Utility\Math.h"
 
 CHAOS_ENGINE_BEGIN
 
@@ -16,6 +17,7 @@ GameObject::GameObject()
 	_position.x = _position.y = _position.z = _direction.y = 0.0f;
 	_direction.x = 1.0f;
 	_direction.z = 1.0f;
+	_scale.x = _scale.y = _scale.z = 1;
 
 	_objectManager->addChild(this);
 }
@@ -44,11 +46,15 @@ void GameObject::setTransform()
 {
 	Math::matrix translation;
 	Math::matrix rotation;
+	Math::matrix scale;
 	Math::matrix final;
+	
 
 	Math::translation(&translation, _position.x, _position.y, _position.z);
 	Math::rotationY(&rotation, D3DXToRadian(_direction.y));
+	Math::scale(&scale, _scale.x, _scale.y, _scale.z);
 	Math::multiply(&final, &rotation, &translation);
+	Math::multiply(&final, &scale, &final);
 
 	_renderer->getDevice()->SetTransform(D3DTS_WORLD, &final);
 }
@@ -94,6 +100,28 @@ void GameObject::move(DirectionEnum direction){
 	}
 
 }
+
+void GameObject::setPosition(Math::vector3 position)
+{
+	_position.x = position.x;
+	_position.y = position.y;
+	_position.z = position.z;
+}
+
+void GameObject::setPosition(int x, int y, int z)
+{
+	_position.x = x;
+	_position.y = y;
+	_position.z = z;
+}
+
+void GameObject::setScale(int x, int y, int z)
+{
+	_scale.x = x;
+	_scale.y = y;
+	_scale.z = z;
+}
+
 
 void GameObject::release()
 {

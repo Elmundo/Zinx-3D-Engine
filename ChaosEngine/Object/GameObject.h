@@ -37,6 +37,7 @@ protected:
 	Texture* _texture;
 	Math::vector3 _position;
 	Math::vector3 _direction;
+	Math::vector3 _scale;
 
 	bool _isModelAvailable;
 	bool _isTextureAvailable;
@@ -53,6 +54,10 @@ public:
 	void move(DirectionEnum direction);
 	void setResource(std::string modelName, std::string textureName);
 	void setTransform();
+	void setPosition(Math::vector3 position);
+	void setPosition(int x, int y, int z);
+	void setScale(int x, int y, int z);
+	
 	virtual void render(); //this could be visit
 	virtual void release();
 	

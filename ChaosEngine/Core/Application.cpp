@@ -28,7 +28,7 @@ int Application::run(){
 	QueryPerformanceCounter(&last);
 
 	Window* wnd = new Window();// Windows::instance();
-	if(!wnd->create((LPCSTR)"ChaosEngine v0.1", 640, 480))
+	if(!wnd->create((LPCSTR)"ChaosEngine v0.1", 1920, 1080))
 		return 1;
 
 	Camera* camera = Camera::instance();

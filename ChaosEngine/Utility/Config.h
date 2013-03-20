@@ -22,8 +22,8 @@ History:
 #define	NEAR_Z 1.0f
 #define FAR_Z  90000.0f
 #define FOVY   45.0f
-#define SCREEN_WIDTH  800
-#define SCREEN_HEIGHT 600
+#define SCREEN_WIDTH  1920
+#define SCREEN_HEIGHT 1080
 #define MOVE_RATE 1
 
 #endif
