@@ -2,31 +2,37 @@
 
 CHAOS_ENGINE_BEGIN
 
-// Static object
-UINT64 Object::_objectCount= 0;
-
 Object::Object()
 {
-	_objectID = ++_objectCount;
+	_objectID = countObject();
 }
 
-UINT64 Object::objectCount(){
-	return _objectCount;
-}
-
-UINT Object::objectID()
+Object::~Object()
 {
-	return _objectID;
+	_objectID = -1;
 }
+
 
 void Object::release()
 {
 	delete this;
 }
 
-Object::~Object()
+inline UINT64 Object::countObject()
 {
-	--_objectCount;
+	static UINT64 s_objectID = 0;
+	return s_objectID++;
+}
+
+
+inline const UINT64 Object::objectID()
+{
+	return _objectID;
+}
+
+BOOL Object::isEqual(Object *object)
+{
+	return (this == object) ? true : false;
 }
 
 CHAOS_ENGINE_END

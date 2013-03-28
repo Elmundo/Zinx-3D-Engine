@@ -8,21 +8,73 @@ CHAOS_ENGINE_BEGIN
 
 GameObject::GameObject()
 {
+	_gameObjectID = countGameObject();
+
 	_renderer        = Renderer::instance();
 	_objectManager   = ObjectManager::instance();
 	_resourceService = ResourceService::instance(); 
 
 	_isModelAvailable = false;
 	_isTextureAvailable  = false;
+
 	_position.x = _position.y = _position.z = _direction.y = 0.0f;
 	_direction.x = 1.0f;
 	_direction.z = 1.0f;
-	_scale.x = _scale.y = _scale.z = 1;
 
 	_objectManager->addChild(this);
 }
 
-void GameObject::setResource(std::string modelName, std::string textureName=""){
+GameObject::GameObject(std::string modelName, std::string textureName="")
+{
+	_gameObjectID = countGameObject();
+
+	_renderer        = Renderer::instance();
+	_objectManager   = ObjectManager::instance();
+	_resourceService = ResourceService::instance(); 
+
+	_isModelAvailable = false;
+	_isTextureAvailable  = false;
+
+	_position.x = _position.y = _position.z = _direction.y = 0.0f;
+	_direction.x = 1.0f;
+	_direction.z = 1.0f;
+
+	_objectManager->addChild(this);
+
+	setResource(modelName, textureName);
+}
+
+GameObject::~GameObject() 
+{
+	
+}
+
+void GameObject::release()
+{
+	_objectManager->removeChild(this);
+	
+	_renderer = NULL;
+	_objectManager = NULL;
+	_resourceService = NULL;
+
+	_model->release();
+	_texture->release();
+
+	Node::release();
+}
+
+inline UINT64 GameObject::countGameObject()
+{
+	static UINT64 s_gameObjectID = 0;
+	return s_gameObjectID++;
+}
+
+inline const UINT64 GameObject::gameObjectID()
+{
+	return _gameObjectID;
+}
+
+void GameObject::setResource(std::string modelName, std::string textureName){
 	_model   = _resourceService->getModel(modelName);
 
 	if (textureName.c_str())	
@@ -40,23 +92,40 @@ void GameObject::render()
 	setTransform();
 	drawTexture();
 	drawModel();
+
+	/* Eðer child larý da içinde çizdirirse zaten ObjectManager'da kayýtlý olduklarýndan tekrar çizdirilirler..
+	if (_children.size() > 0)
+	{
+		std::vector<Node*>::iterator it;
+		for (it = _children.begin(); it != _children.end(); ++it)
+		{
+			// Node sýnýfýnda tanýmlý olan _parent ve _children nesnelerini template tanýmla
+			GameObject* obj = (GameObject*) (*it);
+			obj->render();
+		}
+	}
+	*/
 }
 
 void GameObject::setTransform()
 {
 	Math::matrix translation;
 	Math::matrix rotation;
-	Math::matrix scale;
-	Math::matrix final;
-	
+	//Math::matrix final;
 
 	Math::translation(&translation, _position.x, _position.y, _position.z);
 	Math::rotationY(&rotation, D3DXToRadian(_direction.y));
-	Math::scale(&scale, _scale.x, _scale.y, _scale.z);
-	Math::multiply(&final, &rotation, &translation);
-	Math::multiply(&final, &scale, &final);
+	Math::multiply(&_final, &rotation, &translation);
+	
+	/* Bu yapýyý GameObject sýnýfýný ObjectManager'dan ayýrýp root yapýsýna geçince kullan.
+	if (_parent)
+	{
+		Math::matrix mat = ((GameObject*)_parent)->final();
+		Math::multiply(&_final, &mat, &_final);
+	}
 
-	_renderer->getDevice()->SetTransform(D3DTS_WORLD, &final);
+	_renderer->getDevice()->SetTransform(D3DTS_WORLD, &_final);
+	*/
 }
 
 void GameObject::drawModel()
@@ -77,6 +146,7 @@ void GameObject::drawTexture(){
 		_renderer->getDevice()->SetTexture(0, _texture->texture);
 }
 
+// TODO: Shall be refactored!
 void GameObject::move(DirectionEnum direction){
 
 	if (direction == DirectionEnum::BACKWARD) {
@@ -115,26 +185,20 @@ void GameObject::setPosition(int x, int y, int z)
 	_position.z = z;
 }
 
-void GameObject::setScale(int x, int y, int z)
+const Math::vector3 GameObject::position()
 {
-	_scale.x = x;
-	_scale.y = y;
-	_scale.z = z;
+	return _position;
 }
 
-
-void GameObject::release()
+const Math::vector3 GameObject::direction()
 {
-	_objectManager->removeChild(this);
-
-	Node::release();
+	return _direction;
 }
 
-GameObject::~GameObject() {}
+const Math::matrix GameObject::final()
+{
+	return _final;
+}
 
-/*
- *	Getter & Setter
- */
-Math::vector3 GameObject::direction(){ return _direction;}
 
 CHAOS_ENGINE_END

@@ -13,6 +13,25 @@ Window::Window()
 	_hwnd = NULL;
 }
 
+Window::~Window()
+{
+
+}
+
+void Window::release(){
+	if (_hwnd)
+	{
+		DestroyWindow(_hwnd);
+		_hwnd = NULL;
+	}
+
+	UnregisterClass((LPSTR)_windowClassName.c_str(), GetModuleHandle(NULL));
+	_windowClassName.clear();
+
+	Object::release();
+}
+
+
 static LRESULT CALLBACK _WindowProc(HWND hWnd, UINT uMessage, WPARAM wParam, LPARAM lParam){
 
 	if (Window::instance() && Window::instance()->getHwnd() == hWnd)
@@ -225,22 +244,6 @@ Window* Window::instance()
 	return _instance;
 }
 
-void Window::release(){
-	if (_hwnd)
-	{
-		DestroyWindow(_hwnd);
-		_hwnd = NULL;
-	}
 
-	UnregisterClass((LPSTR)_windowClassName.c_str(), GetModuleHandle(NULL));
-	_windowClassName.clear();
-
-	delete this;
-}
-
-Window::~Window()
-{
-	// do some stuff
-}
 
 CHAOS_ENGINE_END

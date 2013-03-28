@@ -24,20 +24,20 @@ CHAOS_ENGINE_BEGIN
 class CHAOS_DLL Application: public Object{
 
 private:
-	static Application* _instance;
+	static Application *_instance;
 	LARGE_INTEGER       _renderInterval;
 	HINSTANCE           _windowInstance;
 
 public:
 	Application();
 	virtual ~Application();
-
-	virtual bool initInstance();
-	virtual bool applicationLaunched();
-
-	void setRenderInterval(double interval);
-	virtual int run();
 	virtual void release();
+
+	virtual int run();
+	virtual bool initInstance() = 0;
+	virtual bool applicationLaunched() = 0;
+	void setRenderInterval(double interval);
+	
 	static Application* instance();
 };
 

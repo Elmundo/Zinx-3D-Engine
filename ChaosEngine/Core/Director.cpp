@@ -17,41 +17,9 @@ Director::Director()
 	_isPaused = false;
 }
 
-void Director::mainLoop()
+Director::~Director()
 {
-	if (!_isPaused)
-		Scheduler::instance()->tick();
-
-	render();
-}
-
-bool Director::render(){
 	
-	Renderer::instance()->startRender();
-		
-		skybox->RenderSkyBox(); //TODO: delete
-		ObjectManager::instance()->visit();
-
-	Renderer::instance()->stopRender();
-	return true;
-}
-
-Director* Director::instance()
-{
-	if (!_instance)
-		_instance = new Director();
-
-	return _instance;
-}
-
-void Director::showFPS()
-{
-	//Show(_fps);
-}
-
-void Director::end()
-{
-	this->release();
 }
 
 void Director::release()
@@ -65,8 +33,39 @@ void Director::release()
 	Object::release();
 }
 
-Director::~Director()
+void Director::mainLoop()
 {
-	// Do some stuff
+	if (!_isPaused)
+		Scheduler::instance()->tick();
+
+	render();
 }
 
+bool Director::render(){
+	
+	Renderer::instance()->startRender();
+		
+		skybox->RenderSkyBox(); //TODO: delete
+		ObjectManager::instance()->visit(); //TODO: this could be a root node object?
+
+	Renderer::instance()->stopRender();
+	return true;
+}
+
+void Director::showFPS()
+{
+	//Show(_fps);
+}
+
+void Director::end()
+{
+	this->release();
+}
+
+Director* Director::instance()
+{
+	if (!_instance)
+		_instance = new Director();
+
+	return _instance;
+}

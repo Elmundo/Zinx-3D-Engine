@@ -29,12 +29,12 @@ private:
 public:
 	Scheduler();
 	virtual ~Scheduler();
+	virtual void release();
 
 	void tick();
 	void addChild(UpdatedObject* object);
 	void removeChild(UpdatedObject* object);
 
-	virtual void release();
 	static Scheduler* instance();
 };
 

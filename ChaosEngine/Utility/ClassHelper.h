@@ -17,5 +17,5 @@ public:
 
 	virtual ~ClassHelper(){}
 };
-//ClassHelper* ClassHelper::_instance = NULL;
+
 #endif

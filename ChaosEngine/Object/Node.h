@@ -20,8 +20,6 @@ History:
 CHAOS_ENGINE_BEGIN
 
 class CHAOS_DLL Node: public Object{
-private:
-
 protected:
 	Node* _parent;
 	std::vector<Node*> _children;
@@ -29,11 +27,12 @@ protected:
 public:
 	Node();
 	virtual ~Node();
+	virtual void release();
 
 	void addChild(Node* object);
 	void removeChild(Node* object);
-	
-	virtual void release();
+	inline const std::vector<Node*> children();
+	inline const Node* parent();
 };
 
 CHAOS_ENGINE_END

@@ -38,7 +38,7 @@ bool Renderer::createDeviceUI()
 
 	result = D3DXCreateSprite(_device, &_deviceUI);
 
-	if (!result)
+	if (FAILED(result))
 	{
 		return false;
 	}

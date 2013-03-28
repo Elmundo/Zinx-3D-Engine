@@ -26,17 +26,17 @@ CHAOS_ENGINE_BEGIN
 
 class CHAOS_DLL Object{
 
-private:
-	static UINT64 _objectCount; 
-	UINT _objectID;
+private: 
+	UINT64 _objectID;
 
 public:
 	Object();
 	virtual ~Object();
+	virtual void release(); // Override this method
 
-	static UINT64 objectCount();
-	UINT objectID();
-	virtual void release();
+	inline UINT64 countObject();
+	inline const UINT64 objectID();
+	BOOL isEqual(Object *object);
 };
 
 CHAOS_ENGINE_END

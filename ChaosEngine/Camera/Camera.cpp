@@ -17,12 +17,16 @@ Camera::Camera()
 	setView();
 }
 
-Camera* Camera::instance()
+Camera::~Camera()
 {
-	if (!_instance)
-		_instance = new Camera();
 
-	return _instance;
+}
+
+void Camera::release()
+{
+	_renderer = NULL;
+	
+	Object::release();
 }
 
 void Camera::setView()
@@ -139,14 +143,12 @@ Math::vector3 Camera::cameraPosition()
 	return _cameraPosition;
 }
 
-void Camera::release()
+Camera* Camera::instance()
 {
-	Object::release();
-}
+	if (!_instance)
+		_instance = new Camera();
 
-Camera::~Camera()
-{
-
+	return _instance;
 }
 
 CHAOS_ENGINE_END

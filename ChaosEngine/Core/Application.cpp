@@ -5,14 +5,25 @@
 
 CHAOS_ENGINE_BEGIN
 
-// Singleton design variable
-Application* Application::_instance;
+Application *Application::_instance;
 
 Application::Application(){
 	
 	_windowInstance = GetModuleHandle(NULL);
 	_renderInterval.QuadPart = 0;
 	_instance = this;
+}
+
+Application::~Application()
+{
+	// do some stuff
+}
+
+void Application::release()
+{
+	Director::instance()->end();
+
+	Object::release();
 }
 
 int Application::run(){
@@ -28,7 +39,7 @@ int Application::run(){
 	QueryPerformanceCounter(&last);
 
 	Window* wnd = new Window();// Windows::instance();
-	if(!wnd->create((LPCSTR)"ChaosEngine v0.1", 1920, 1080))
+	if(!wnd->create((LPCSTR)"ChaosEngine v0.1", 800, 600))
 		return 1;
 
 	Camera* camera = Camera::instance();
@@ -79,31 +90,9 @@ void Application::setRenderInterval( double interval ){
 	_renderInterval.QuadPart = (LONGLONG)(interval * frequency.QuadPart);
 }
 
-Application* Application::instance(){
+Application* Application::instance()
+{
 	return _instance;
-}
-
-bool Application::initInstance()
-{
-	return true;
-}
-
-bool Application::applicationLaunched()
-{
-	//Override this method
-	return true;
-}
-
-void Application::release()
-{
-	Director::instance()->end();
-
-	Object::release();
-}
-
-Application::~Application()
-{
-	// do some stuff
 }
 
 CHAOS_ENGINE_END

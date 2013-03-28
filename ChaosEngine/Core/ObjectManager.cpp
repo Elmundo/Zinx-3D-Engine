@@ -9,6 +9,21 @@ ObjectManager::ObjectManager()
 
 }
 
+ObjectManager::~ObjectManager()
+{
+
+}
+
+void ObjectManager::release()
+{
+	std::vector<GameObject*>::iterator it;
+	for (it = _root.begin(); it != _root.end(); ++it)
+		(*it)->release();
+	_root.clear();
+
+	Object::release();
+}
+
 void ObjectManager::addChild( GameObject* gameObject )
 {
 	_root.push_back(gameObject);
@@ -23,8 +38,8 @@ void ObjectManager::removeChild( GameObject* gameObject )
 	{
 		if ((*it) == gameObject)
 		{
+			(*it)->release();
 			_root.erase(it);
-			//gameObject->release(); //Not sure of it
 		}
 	}
 }
@@ -44,18 +59,6 @@ ObjectManager* ObjectManager::instance()
 		_instance = new ObjectManager();
 
 	return _instance;
-}
-
-void ObjectManager::release()
-{
-	_root.clear();
-
-	Object::release();
-}
-
-ObjectManager::~ObjectManager()
-{
-
 }
 
 CHAOS_ENGINE_END

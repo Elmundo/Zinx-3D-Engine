@@ -5,7 +5,18 @@ CHAOS_ENGINE_BEGIN
 Scheduler* Scheduler::_instance;
 
 Scheduler::Scheduler(){
-	// do stuff
+	
+	_updatedList.clear();
+}
+
+Scheduler::~Scheduler()
+{
+	// do some stuff
+}
+
+void Scheduler::release()
+{
+	Object::release();
 }
 
 void Scheduler::tick()
@@ -39,16 +50,6 @@ Scheduler* Scheduler::instance()
 		_instance = new Scheduler();
 
 	return _instance;
-}
-
-void Scheduler::release()
-{
-	delete this;
-}
-
-Scheduler::~Scheduler()
-{
-	// do some stuff
 }
 
 CHAOS_ENGINE_END

@@ -36,6 +36,7 @@ private:
 public:
 	Camera();
 	virtual ~Camera();
+	virtual void release();
 
 	void setView();
 	void pitch(float angle);
@@ -51,7 +52,6 @@ public:
 	Math::vector3 look();
 	Math::vector3 cameraPosition();
 
-	virtual void release();
 	static Camera* instance();
 };
 

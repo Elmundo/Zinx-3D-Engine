@@ -31,11 +31,12 @@ private:
 public:
 	Window();
 	virtual ~Window();
+	virtual void release();
 
 	bool create(LPCTSTR title, int w, int h);
 	LRESULT CALLBACK windowProc(HWND hWnd, UINT uMessage, WPARAM wParam, LPARAM lParam);
 	HWND getHwnd();
-	virtual void release();
+	
 	static Window* instance();
 	void centerWindowPosition();
 

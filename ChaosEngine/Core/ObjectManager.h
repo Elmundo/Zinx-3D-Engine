@@ -28,12 +28,12 @@ private:
 public:
 	ObjectManager();
 	virtual ~ObjectManager();
+	virtual void release();
 
 	void addChild(GameObject* gameObject);
 	void removeChild(GameObject* gameObject);
 	void visit();
 
-	virtual void release();
 	static ObjectManager* instance();
 };
 
