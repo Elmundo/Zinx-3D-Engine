@@ -15,6 +15,17 @@ Renderer::Renderer()
 	setFOV();
 }
 
+Renderer::~Renderer()
+{
+	_direct3D->Release();
+	_device->Release();
+	_deviceUI->Release();
+
+	_direct3D = NULL;
+	_device = NULL;
+	_deviceUI = NULL;
+}
+
 bool Renderer::createDevice()
 {
 	HWND hwnd = Window::instance()->getHwnd();
@@ -139,17 +150,6 @@ Renderer* Renderer::instance()
 void Renderer::release()
 {
 	//delete this;
-}
-
-Renderer::~Renderer()
-{
-	_direct3D->Release();
-	_device->Release();
-	_deviceUI->Release();
-
-	_direct3D = NULL;
-	_device = NULL;
-	_deviceUI = NULL;
 }
 
 CHAOS_ENGINE_END

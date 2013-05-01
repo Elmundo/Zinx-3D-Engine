@@ -123,9 +123,9 @@ void GameObject::setTransform()
 		Math::matrix mat = ((GameObject*)_parent)->final();
 		Math::multiply(&_final, &mat, &_final);
 	}
-
-	_renderer->getDevice()->SetTransform(D3DTS_WORLD, &_final);
 	*/
+	_renderer->getDevice()->SetTransform(D3DTS_WORLD, &_final);
+	
 }
 
 void GameObject::drawModel()
@@ -170,6 +170,12 @@ void GameObject::move(DirectionEnum direction){
 	}
 
 }
+
+void GameObject::rotate(float angle)
+{
+	_direction.y += angle;
+}
+
 
 void GameObject::setPosition(Math::vector3 position)
 {

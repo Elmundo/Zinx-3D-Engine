@@ -60,6 +60,7 @@ public:
 	
 	virtual void render();
 	void move(DirectionEnum direction);
+	void rotate(float angle);
 	
 	void setResource(std::string modelName, std::string textureName);
 	void setTransform();

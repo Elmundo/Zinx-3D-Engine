@@ -164,10 +164,10 @@ LRESULT CALLBACK Window::windowProc( HWND hWnd, UINT uMessage, WPARAM wParam, LP
 		switch (wParam)
 		{
 		case SIZE_RESTORED:
-			//CCApplication::sharedApplication().applicationWillEnterForeground();
+			//Application::instance().applicationWillEnterForeground();
 			break;
 		case SIZE_MINIMIZED:
-			//CCApplication::sharedApplication().applicationDidEnterBackground();
+			//Application::instance().applicationDidEnterBackground();
 			break;
 		}
 		break;
