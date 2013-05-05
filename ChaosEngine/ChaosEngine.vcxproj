@@ -107,7 +107,7 @@
     <ClCompile Include="resource\Model.cpp" />
     <ClCompile Include="resource\ResourceService.cpp" />
     <ClCompile Include="resource\Texture.cpp" />
-    <ClCompile Include="SkyBox.cpp" />
+    <ClCompile Include="skybox\SkyBox.cpp" />
     <ClCompile Include="Utility\Math.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +122,8 @@
     <ClInclude Include="Input\InputEnum.h" />
     <ClInclude Include="Log\Log.h" />
     <ClInclude Include="Object\GameObject.h" />
+    <ClInclude Include="Object\IObject.h" />
+    <ClInclude Include="Object\IRenderable.h" />
     <ClInclude Include="Object\Node.h" />
     <ClInclude Include="Object\Object.h" />
     <ClInclude Include="Object\UpdatedObject.h" />
@@ -130,7 +132,7 @@
     <ClInclude Include="resource\Model.h" />
     <ClInclude Include="resource\ResourceService.h" />
     <ClInclude Include="resource\Texture.h" />
-    <ClInclude Include="SkyBox.h" />
+    <ClInclude Include="skybox\SkyBox.h" />
     <ClInclude Include="Utility\ClassHelper.h" />
     <ClInclude Include="Utility\Config.h" />
     <ClInclude Include="Utility\Macros.h" />

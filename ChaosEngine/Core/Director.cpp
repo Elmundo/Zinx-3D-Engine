@@ -2,18 +2,13 @@
 #include "Core/Window.h"
 #include "Camera/Camera.h"
 
-//Delete later
-#include "SkyBox.h"
-
 USING_CHAOS_ENGINE;
 
 Director* Director::_instance;
 bool Director::isFirstStart = true;
-SkyBox* skybox; //TODO: delete
 
 Director::Director()
 {
-	skybox = new SkyBox(); //TODO: delete
 	_isPaused = false;
 }
 
@@ -45,7 +40,6 @@ bool Director::render(){
 	
 	Renderer::instance()->startRender();
 		
-		skybox->RenderSkyBox(); //TODO: delete
 		ObjectManager::instance()->visit(); //TODO: this could be a root node object?
 
 	Renderer::instance()->stopRender();

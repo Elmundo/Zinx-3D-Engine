@@ -16,6 +16,7 @@ History:
 #define __GAME_OBJECT_H__
 
 #include "Object/Node.h"
+#include "Object/IRenderable.h"
 #include "resource/ResourceService.h"
 #include "Utility/Math.h"
 #include "Core/Renderer.h"
@@ -31,7 +32,7 @@ enum CHAOS_DLL DirectionEnum{
 
 class ObjectManager;
 
-class CHAOS_DLL GameObject: public Node{
+class CHAOS_DLL GameObject: public Node, public IRenderable{
 private:
 	Renderer*        _renderer;
 	ObjectManager*   _objectManager;
@@ -49,6 +50,7 @@ private:
 
 	void drawModel();
 	void drawTexture();
+
 public:
 	GameObject();
 	GameObject(std::string modelName, std::string textureName);

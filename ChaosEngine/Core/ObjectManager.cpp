@@ -16,29 +16,35 @@ ObjectManager::~ObjectManager()
 
 void ObjectManager::release()
 {
-	std::vector<GameObject*>::iterator it;
+	std::vector<IRenderable*>::iterator it;
 	for (it = _root.begin(); it != _root.end(); ++it)
-		(*it)->release();
+	{
+		IObject *object = (IObject*)(*it);
+		object->release();
+	}
+
 	_root.clear();
 
 	Object::release();
 }
 
-void ObjectManager::addChild( GameObject* gameObject )
+void ObjectManager::addChild(IRenderable* gameObject )
 {
 	_root.push_back(gameObject);
 }
 
-void ObjectManager::removeChild( GameObject* gameObject )
+void ObjectManager::removeChild(IRenderable* gameObject )
 {
-	std::vector<GameObject*>::iterator it;
+	std::vector<IRenderable*>::iterator it;
 	it = _root.begin();
 
 	for (; it != _root.end(); ++it)
 	{
 		if ((*it) == gameObject)
 		{
-			(*it)->release();
+
+			IObject *object = (IObject*)(*it);
+			object->release();
 			_root.erase(it);
 		}
 	}
@@ -46,7 +52,7 @@ void ObjectManager::removeChild( GameObject* gameObject )
 
 void ObjectManager::visit()
 {
-	std::vector<GameObject*>::iterator it;
+	std::vector<IRenderable*>::iterator it;
 	for (it = _root.begin(); it != _root.end(); ++it)
 	{
 		(*it)->render();

@@ -15,7 +15,8 @@ History:
 #ifndef __OBJECT_MANAGER_H__
 #define __OBJECT_MANAGER_H__
 
-#include <Object/GameObject.h>
+#include "Object/GameObject.h"
+#include "Object/IRenderable.h"
 
 CHAOS_ENGINE_BEGIN
 
@@ -23,21 +24,20 @@ class CHAOS_DLL ObjectManager: public Object{
 private:
 	static ObjectManager* _instance;
 
-	std::vector<GameObject*> _root;
+	std::vector<IRenderable*> _root;
 
 public:
 	ObjectManager();
 	virtual ~ObjectManager();
 	virtual void release();
 
-	void addChild(GameObject* gameObject);
-	void removeChild(GameObject* gameObject);
+	void addChild(IRenderable* gameObject);
+	void removeChild(IRenderable* gameObject);
 	void visit();
 
 	static ObjectManager* instance();
 };
 
 CHAOS_ENGINE_END
-
 
 #endif

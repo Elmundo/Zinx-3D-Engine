@@ -31,6 +31,9 @@
     <Filter Include="resource">
       <UniqueIdentifier>{ff7a1551-5c24-490b-8f03-8135e4557c6b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="skybox">
+      <UniqueIdentifier>{8f3a0802-19bb-4f83-ade4-73e224147fe1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Log\Log.cpp">
@@ -39,7 +42,6 @@
     <ClCompile Include="Utility\Math.cpp">
       <Filter>Utility</Filter>
     </ClCompile>
-    <ClCompile Include="SkyBox.cpp" />
     <ClCompile Include="Object\Object.cpp">
       <Filter>Object</Filter>
     </ClCompile>
@@ -85,6 +87,9 @@
     <ClCompile Include="Core\Application.cpp">
       <Filter>Core</Filter>
     </ClCompile>
+    <ClCompile Include="skybox\SkyBox.cpp">
+      <Filter>skybox</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Input\InputEnum.h">
@@ -99,7 +104,6 @@
     <ClInclude Include="Utility\Math.h">
       <Filter>Utility</Filter>
     </ClInclude>
-    <ClInclude Include="SkyBox.h" />
     <ClInclude Include="Utility\Macros.h">
       <Filter>Utility</Filter>
     </ClInclude>
@@ -159,6 +163,15 @@
     </ClInclude>
     <ClInclude Include="Utility\StringHelper.h">
       <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\IRenderable.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\IObject.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="skybox\SkyBox.h">
+      <Filter>skybox</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

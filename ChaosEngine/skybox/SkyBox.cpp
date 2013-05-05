@@ -73,7 +73,7 @@ SkyBox::SkyBox(){
     hRet |= D3DXCreateTextureFromFile( _renderer, ("Resource/SkyBox_Bottom.jpg"), &pSkyTextures[5] );
 }
 
-bool SkyBox::RenderSkyBox(){
+void SkyBox::render(){
 
 	// Set up rendering states for the sky box
 	//pDirect3DDevice->SetRenderState( D3DRS_CULLMODE, D3DCULL_CCW );
@@ -108,8 +108,6 @@ bool SkyBox::RenderSkyBox(){
 	// Set up rendering states for the sky box
     //pDirect3DDevice->SetRenderState( D3DRS_ZWRITEENABLE, true );
 	//pDirect3DDevice->SetRenderState( D3DRS_LIGHTING, true );
-
-	return true;
 }
 
 CHAOS_ENGINE_END

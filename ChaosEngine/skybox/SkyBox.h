@@ -1,14 +1,16 @@
-#pragma once
+#ifndef __SKYBOX_H__
+#define __SKYBOX_H__
 
 #include <d3dx9.h>
 #include <d3d9.h>
 //#include "Camera\Camera.h"
-#include <Utility\Macros.h>
+#include <Utility/Macros.h>
 #include "Core/Renderer.h"
+#include "Object/IRenderable.h"
 
 CHAOS_ENGINE_BEGIN
 
-class CHAOS_DLL SkyBox{
+class CHAOS_DLL SkyBox: public IRenderable{
 public:
 	
 	struct TTexVertex{
@@ -25,13 +27,13 @@ public:
 
 	D3DXMATRIX* pCoordMatrix;
 
-
 	//Methods
 	SkyBox();
-	bool RenderSkyBox();
-
+	void render();
 };
 
 CHAOS_ENGINE_END
+
+#endif
 
 

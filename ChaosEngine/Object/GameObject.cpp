@@ -49,16 +49,15 @@ GameObject::~GameObject()
 	
 }
 
+
 void GameObject::release()
 {
 	_objectManager->removeChild(this);
 	
-	_renderer = NULL;
-	_objectManager = NULL;
-	_resourceService = NULL;
-
 	_model->release();
 	_texture->release();
+
+
 
 	Node::release();
 }
@@ -93,7 +92,9 @@ void GameObject::render()
 	drawTexture();
 	drawModel();
 
-	/* Eðer child larý da içinde çizdirirse zaten ObjectManager'da kayýtlý olduklarýndan tekrar çizdirilirler..
+	//TODO: Baris
+	/*******************BUG**********************/
+	/* Eðer child'larý da içinde çizdirirse zaten ObjectManager'da kayýtlý olduklarýndan tekrar çizdirilirler..
 	if (_children.size() > 0)
 	{
 		std::vector<Node*>::iterator it;

@@ -17,6 +17,7 @@ History:
 
 #include "Utility/Macros.h"
 #include "Utility/Config.h"
+#include "Object/IObject.h"
 #include <Windows.h>
 #include <iostream>
 #include <map>
@@ -24,7 +25,7 @@ History:
 
 CHAOS_ENGINE_BEGIN
 
-class CHAOS_DLL Object{
+class CHAOS_DLL Object: public IObject{
 
 private: 
 	UINT64 _objectID;
