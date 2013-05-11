@@ -107,6 +107,7 @@ bool Window::create( LPCTSTR title, int w, int h )
 	centerWindowPosition();
 	ShowWindow(_hwnd, SW_SHOW);
 	UpdateWindow(_hwnd);
+	ShowCursor(false);
 	
 	return true;
 	

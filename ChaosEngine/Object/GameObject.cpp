@@ -21,6 +21,9 @@ GameObject::GameObject()
 	_direction.x = 1.0f;
 	_direction.z = 1.0f;
 
+	_texture = NULL;
+	_model = NULL;
+
 	_objectManager->addChild(this);
 }
 
@@ -56,8 +59,6 @@ void GameObject::release()
 	
 	_model->release();
 	_texture->release();
-
-
 
 	Node::release();
 }

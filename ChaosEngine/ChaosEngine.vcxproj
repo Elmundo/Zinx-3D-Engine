@@ -120,6 +120,7 @@
     <ClInclude Include="Core\Window.h" />
     <ClInclude Include="Input\InputManager.h" />
     <ClInclude Include="Input\InputEnum.h" />
+    <ClInclude Include="IUpdatedObject.h" />
     <ClInclude Include="Log\Log.h" />
     <ClInclude Include="Object\GameObject.h" />
     <ClInclude Include="Object\IObject.h" />
