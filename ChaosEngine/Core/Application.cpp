@@ -42,9 +42,14 @@ int Application::run(){
 	if(!wnd->create((LPCSTR)"ChaosEngine v0.1", 800, 600))
 		return 1;
 
+	// Do not create Camera instance automatically
+	// Use custom camera object and instantiate it in AppDelegate class istead
+	// Camera is an object too
+	/*
 	Camera* camera = Camera::instance();
 	if (!camera)
 		return 1;
+	*/
 
 	// Call initInstance and applicationLaunched methods here
 	if (!initInstance() || !applicationLaunched())

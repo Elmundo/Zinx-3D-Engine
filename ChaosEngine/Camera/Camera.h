@@ -15,16 +15,17 @@ History:
 #ifndef __CAMERA_H__
 #define __CAMERA_H__
 
-#include "Object/GameObject.h"
+#include "Object/UpdatedObject.h"
 
 CHAOS_ENGINE_BEGIN
 
 class Renderer;
 
-class CHAOS_DLL Camera: public Object{
-private:
+class CHAOS_DLL Camera: public UpdatedObject{
+protected:
 	static Camera* _instance;
 
+private:
 	Renderer* _renderer;
 
 	Math::matrix _view;
@@ -51,6 +52,8 @@ public:
 	Math::vector3 up();
 	Math::vector3 look();
 	Math::vector3 cameraPosition();
+	void Camera::setPosition(int x, int y, int z);
+	void Camera::setPosition(Math::vector3 position);
 
 	static Camera* instance();
 };

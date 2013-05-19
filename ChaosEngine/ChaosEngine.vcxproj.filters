@@ -173,8 +173,6 @@
     <ClInclude Include="skybox\SkyBox.h">
       <Filter>skybox</Filter>
     </ClInclude>
-    <ClInclude Include="IUpdatedObject.h">
-      <Filter>Object</Filter>
-    </ClInclude>
+    <ClInclude Include="Object\IUpdatedObject.h" />
   </ItemGroup>
 </Project>

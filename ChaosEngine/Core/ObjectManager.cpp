@@ -46,6 +46,7 @@ void ObjectManager::removeChild(IRenderable* gameObject )
 			IObject *object = (IObject*)(*it);
 			object->release();
 			_root.erase(it);
+			break;
 		}
 	}
 }

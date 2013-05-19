@@ -22,7 +22,7 @@ History:
  *	Generic Macros
  */
 #ifdef _USRDLL
-	#define CHAOS_DLL _declspec(dllexport)
+	#define CHAOS_DLL _declspec(dllexport)  
 #else
 	#define CHAOS_DLL _declspec(dllimport)
 #endif

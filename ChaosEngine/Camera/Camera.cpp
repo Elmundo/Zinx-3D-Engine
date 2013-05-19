@@ -26,7 +26,7 @@ void Camera::release()
 {
 	_renderer = NULL;
 	
-	Object::release();
+	UpdatedObject::release();
 }
 
 void Camera::setView()
@@ -116,6 +116,20 @@ void Camera::fly( float unit )
 	_cameraPosition += _up * unit;
 
 	setView();
+}
+
+void Camera::setPosition(Math::vector3 position)
+{
+	_cameraPosition.x = position.x;
+	_cameraPosition.y = position.y;
+	_cameraPosition.z = position.z;
+}
+
+void Camera::setPosition(int x, int y, int z)
+{
+	_cameraPosition.x = x;
+	_cameraPosition.y = y;
+	_cameraPosition.z = z;
 }
 
 Math::matrix Camera::view()

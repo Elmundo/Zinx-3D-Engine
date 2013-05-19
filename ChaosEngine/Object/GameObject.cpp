@@ -95,7 +95,7 @@ void GameObject::render()
 
 	//TODO: Baris
 	/*******************BUG**********************/
-	/* Eðer child'larý da içinde çizdirirse zaten ObjectManager'da kayýtlý olduklarýndan tekrar çizdirilirler..
+	/* TODO: Eðer child'larý da içinde çizdirirse zaten ObjectManager'da kayýtlý olduklarýndan tekrar çizdirilirler..
 	if (_children.size() > 0)
 	{
 		std::vector<Node*>::iterator it;

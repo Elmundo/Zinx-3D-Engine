@@ -15,6 +15,8 @@ void UpdatedObject::update()
 
 void UpdatedObject::release(){
 	Scheduler::instance()->removeChild(this);	
+
+	GameObject::release();
 }
 
 UpdatedObject::~UpdatedObject()
