@@ -42,7 +42,6 @@ void ObjectManager::removeChild(IRenderable* gameObject )
 	{
 		if ((*it) == gameObject)
 		{
-
 			IObject *object = (IObject*)(*it);
 			object->release();
 			_root.erase(it);

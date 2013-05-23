@@ -10,6 +10,11 @@ ResourceService::ResourceService()
 
 }
 
+ResourceService::~ResourceService()
+{
+
+}
+
 bool ResourceService::loadResource(std::string resourceName)
 {
 	Model* model = loadModel(resourceName);
@@ -157,10 +162,6 @@ ResourceService* ResourceService::instance()
 }
 
 void ResourceService::release()
-{
-}
-
-ResourceService::~ResourceService()
 {
 }
 
