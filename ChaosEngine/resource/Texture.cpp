@@ -13,7 +13,7 @@ Texture::~Texture(){
 
 void Texture::release(){
 	
-	delete texture;
+	texture->Release();
 	Object::release();
 }
 
