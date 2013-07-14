@@ -54,6 +54,7 @@ private:
 	bool createDevice();
 	bool createDeviceUI();
 	bool setRenderStates();
+	bool setSamplerStates();
 	bool setFOV();
 	inline bool setDeviceAttributes();
 };

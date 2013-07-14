@@ -12,6 +12,7 @@ Renderer::Renderer()
 	createDevice();
 	createDeviceUI();
 	setRenderStates();
+	setSamplerStates();
 	setFOV();
 }
 
@@ -68,14 +69,20 @@ bool Renderer::setRenderStates()
 	_device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE );
 	_device->SetRenderState(D3DRS_AMBIENT, D3DCOLOR_COLORVALUE( 1.0f, 1.0f, 1.0f, 1.0f ) );
 
+	return true;
+}
+
+bool Renderer::setSamplerStates()
+{
 	_device->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR);
 	_device->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_LINEAR);
 	_device->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_LINEAR);
 	_device->SetSamplerState(0, D3DSAMP_ADDRESSU, D3DTADDRESS_CLAMP );
 	_device->SetSamplerState(0, D3DSAMP_ADDRESSV, D3DTADDRESS_CLAMP );
-
+	
 	return true;
 }
+
 
 bool Renderer::setFOV()
 {

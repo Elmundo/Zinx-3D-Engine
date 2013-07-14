@@ -39,7 +39,7 @@ void Camera::setView()
 	Math::cross(&_right, &_up, &_look);
 	Math::normalize(&_right, &_right);
 
-	//Why so serious?
+	//Why negative of value?
 	float x = -Math::dot(&_right, &_cameraPosition);
 	float y = -Math::dot(&_up, &_cameraPosition);
 	float z = -Math::dot(&_look, &_cameraPosition);
