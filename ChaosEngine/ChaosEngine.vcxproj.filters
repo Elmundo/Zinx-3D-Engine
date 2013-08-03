@@ -34,6 +34,12 @@
     <Filter Include="skybox">
       <UniqueIdentifier>{8f3a0802-19bb-4f83-ade4-73e224147fe1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="xmlparser">
+      <UniqueIdentifier>{41392ec7-9444-40f5-ae6c-c5921dd0b025}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets">
+      <UniqueIdentifier>{bbed54cd-8a52-4f50-bb99-da9fb055e922}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Log\Log.cpp">
@@ -89,6 +95,9 @@
     </ClCompile>
     <ClCompile Include="skybox\SkyBox.cpp">
       <Filter>skybox</Filter>
+    </ClCompile>
+    <ClCompile Include="xmlparser\XmlParser.cpp">
+      <Filter>xmlparser</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -176,5 +185,13 @@
     <ClInclude Include="Object\IUpdatedObject.h">
       <Filter>Object</Filter>
     </ClInclude>
+    <ClInclude Include="xmlparser\XmlParser.h">
+      <Filter>xmlparser</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="assets\config.xml">
+      <Filter>assets</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

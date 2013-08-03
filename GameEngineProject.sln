@@ -2,26 +2,46 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChaosEngine", "ChaosEngine\ChaosEngine.vcxproj", "{24EDD299-F0F4-4209-BC2F-3DC0F1071DF4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{89A1E353-E2DC-495C-B403-742BE206ACED} = {89A1E353-E2DC-495C-B403-742BE206ACED}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TrialGame", "TrialGame\TrialGame.vcxproj", "{1BF91A93-6847-4A74-AA15-A0A5D6CDA541}"
 	ProjectSection(ProjectDependencies) = postProject
+		{89A1E353-E2DC-495C-B403-742BE206ACED} = {89A1E353-E2DC-495C-B403-742BE206ACED}
 		{24EDD299-F0F4-4209-BC2F-3DC0F1071DF4} = {24EDD299-F0F4-4209-BC2F-3DC0F1071DF4}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pugixml", "libs\pugixml\scripts\pugixml_vs2010.vcxproj", "{89A1E353-E2DC-495C-B403-742BE206ACED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
 		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{24EDD299-F0F4-4209-BC2F-3DC0F1071DF4}.Debug|Win32.ActiveCfg = Debug|Win32
 		{24EDD299-F0F4-4209-BC2F-3DC0F1071DF4}.Debug|Win32.Build.0 = Debug|Win32
+		{24EDD299-F0F4-4209-BC2F-3DC0F1071DF4}.Debug|x64.ActiveCfg = Debug|Win32
 		{24EDD299-F0F4-4209-BC2F-3DC0F1071DF4}.Release|Win32.ActiveCfg = Release|Win32
 		{24EDD299-F0F4-4209-BC2F-3DC0F1071DF4}.Release|Win32.Build.0 = Release|Win32
+		{24EDD299-F0F4-4209-BC2F-3DC0F1071DF4}.Release|x64.ActiveCfg = Release|Win32
 		{1BF91A93-6847-4A74-AA15-A0A5D6CDA541}.Debug|Win32.ActiveCfg = Debug|Win32
 		{1BF91A93-6847-4A74-AA15-A0A5D6CDA541}.Debug|Win32.Build.0 = Debug|Win32
+		{1BF91A93-6847-4A74-AA15-A0A5D6CDA541}.Debug|x64.ActiveCfg = Debug|Win32
 		{1BF91A93-6847-4A74-AA15-A0A5D6CDA541}.Release|Win32.ActiveCfg = Release|Win32
 		{1BF91A93-6847-4A74-AA15-A0A5D6CDA541}.Release|Win32.Build.0 = Release|Win32
+		{1BF91A93-6847-4A74-AA15-A0A5D6CDA541}.Release|x64.ActiveCfg = Release|Win32
+		{89A1E353-E2DC-495C-B403-742BE206ACED}.Debug|Win32.ActiveCfg = Debug|Win32
+		{89A1E353-E2DC-495C-B403-742BE206ACED}.Debug|Win32.Build.0 = Debug|Win32
+		{89A1E353-E2DC-495C-B403-742BE206ACED}.Debug|x64.ActiveCfg = Debug|x64
+		{89A1E353-E2DC-495C-B403-742BE206ACED}.Debug|x64.Build.0 = Debug|x64
+		{89A1E353-E2DC-495C-B403-742BE206ACED}.Release|Win32.ActiveCfg = Release|Win32
+		{89A1E353-E2DC-495C-B403-742BE206ACED}.Release|Win32.Build.0 = Release|Win32
+		{89A1E353-E2DC-495C-B403-742BE206ACED}.Release|x64.ActiveCfg = Release|x64
+		{89A1E353-E2DC-495C-B403-742BE206ACED}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
