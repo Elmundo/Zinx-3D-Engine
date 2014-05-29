@@ -1,11 +1,9 @@
-----------
+
 Chaos Engine
-----------
+==============
 Description:
 - 3D Game Engine created as a learning experience
 
-
-----------
 Versions:
 ----------
 v0.2
