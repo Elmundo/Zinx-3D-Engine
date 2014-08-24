@@ -2,7 +2,7 @@
 Zinx Engine
 ==============
 Description:
-- 3D Game Engine created as a learning experience
+- 3D Zinx Engine created as a learning experience
 
 Versions:
 ----------
